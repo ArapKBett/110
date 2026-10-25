@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATH 110 – Basic Mathematics | Complete Worked Solutions</title>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+<style>
+  :root{
+    --blue:#2563eb;
+    --green:#10b981;
+    --amber:#f59e0b;
+    --red:#ef4444;
+    --ink:#1f2937;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Georgia,"Times New Roman",serif;
+    color:var(--ink);
+    background:#f6f7f9;
+    line-height:1.65;
+  }
+  header.masthead{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb 55%,#0ea5e9);
+    color:#fff;
+    padding:48px 20px 40px;
+    text-align:center;
+  }
+  header.masthead h1{margin:0 0 8px;font-size:2rem;letter-spacing:.5px;}
+  header.masthead p{margin:4px 0;opacity:.92;font-size:.95rem;}
+  main{
+    max-width:1000px;
+    margin:0 auto;
+    padding:28px 20px 80px;
+  }
+  nav.toc{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 22px;
+    margin-bottom:34px;
+    box-shadow:0 1px 3px rgba(0,0,0,.05);
+  }
+  nav.toc h2{margin:0 0 10px;font-size:1.05rem;color:var(--blue);}
+  nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:30px;}
+  nav.toc li{margin:3px 0;}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted #c7ccd4;}
+  nav.toc a:hover{color:var(--blue);}
+  @media(max-width:640px){nav.toc ol{columns:1;}}
+
+  h2.part{
+    margin:52px 0 18px;
+    font-size:1.35rem;
+    color:#111827;
+    border-bottom:3px solid var(--blue);
+    padding-bottom:6px;
+  }
+  h3.sub{
+    margin:28px 0 12px;
+    font-size:1.08rem;
+    color:#374151;
+  }
+
+  .q{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:5px solid var(--blue);
+    border-radius:8px;
+    padding:16px 20px;
+    margin:18px 0;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  .q .qnum{
+    font-weight:bold;
+    color:var(--blue);
+    margin-right:6px;
+  }
+  .q .marks{
+    float:right;
+    font-size:.78rem;
+    color:var(--muted);
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f4f6;
+    border-radius:20px;
+    padding:2px 10px;
+    white-space:nowrap;
+    margin-left:10px;
+  }
+  .q .question{font-weight:bold;color:#111827;}
+  .q .src{
+    display:block;
+    font-size:.72rem;
+    color:#9ca3af;
+    font-family:Arial,Helvetica,sans-serif;
+    margin-top:12px;
+    letter-spacing:.3px;
+  }
+  .sol{
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed #d1d5db;
+  }
+  .sol::before{
+    content:"Solution";
+    display:block;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:.72rem;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    color:var(--green);
+    font-weight:bold;
+    margin-bottom:6px;
+  }
+  .ans{
+    background:#ecfdf5;
+    border-left:4px solid var(--green);
+    padding:8px 12px;
+    border-radius:5px;
+    margin-top:10px;
+  }
+  .note{
+    background:#fffbeb;
+    border-left:4px solid var(--amber);
+    padding:10px 14px;
+    border-radius:5px;
+    margin:12px 0;
+    font-size:.95rem;
+  }
+  .note strong{color:#b45309;}
+  .illegible{
+    background:#fef2f2;
+    border-left:4px solid var(--red);
+    padding:10px 14px;
+    border-radius:5px;
+    margin:12px 0;
+    font-size:.95rem;
+  }
+  .illegible strong{color:#b91c1c;}
+
+  table{
+    border-collapse:collapse;
+    margin:12px 0;
+    font-size:.92rem;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+  }
+  th,td{
+    border:1px solid #d1d5db;
+    padding:6px 12px;
+    text-align:center;
+  }
+  th{background:#eef2ff;color:#1e3a8a;}
+  tr:nth-child(even) td{background:#fafafa;}
+
+  svg.venn{
+    display:block;
+    max-width:420px;
+    width:100%;
+    height:auto;
+    margin:16px auto;
+    background:#fff;
+    border-radius:8px;
+  }
+  svg.venn text{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:15px;
+    fill:#111827;
+  }
+  svg.venn text.name{font-weight:bold;font-size:17px;fill:#1e3a8a;}
+  svg.venn text.small{font-size:11px;fill:#6b7280;}
+
+  code{
+    background:#f3f4f6;
+    padding:1px 5px;
+    border-radius:4px;
+    font-family:Consolas,Monaco,monospace;
+    font-size:.9em;
+  }
+  ul.tight li{margin:3px 0;}
+  ol.tight li{margin:3px 0;}
+  footer{
+    text-align:center;
+    font-size:.82rem;
+    color:var(--muted);
+    padding:30px 20px 50px;
+    font-family:Arial,Helvetica,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1>MATH 110 — Basic Mathematics</h1>
+  <p>Kabarak University · Complete Worked Solutions</p>
+  <p>Compiled from 7 past papers (Special, Main, Supplementary &amp; Part‑Time sittings) · All duplicates merged</p>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#partA">Sets, Venn Diagrams &amp; Surveys</a></li>
+    <li><a href="#partB">Functions, Inverses &amp; Compositions</a></li>
+    <li><a href="#partC">Counting: Permutations &amp; Combinations</a></li>
+    <li><a href="#partD">Sequences &amp; Series (AP &amp; GP)</a></li>
+    <li><a href="#partE">Binomial Theorem &amp; Approximations</a></li>
+    <li><a href="#partF">Trigonometry: Identities &amp; Equations</a></li>
+    <li><a href="#partG">Logic, Propositions &amp; Truth Tables</a></li>
+    <li><a href="#partH">Complex Numbers</a></li>
+    <li><a href="#partI">Inequalities &amp; Absolute Value</a></li>
+    <li><a href="#partJ">Illegible / Incomplete Items</a></li>
+  </ol>
+</nav>
+
+<!-- ================================================================= -->
+<!-- PART A : SETS                                                      -->
+<!-- ================================================================= -->
+<h2 class="part" id="partA">Part A — Sets, Venn Diagrams &amp; Surveys</h2>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">A1.</span> Prove that \(A\cap(A\cup B)=A\cap B\).</div>
+  <div class="sol">
+    <div class="note"><strong>Printed question is false as written.</strong> By the absorption law, \(A\cap(A\cup B)=A\). The equality \(A\cap(A\cup B)=A\cap B\) holds only when \(A\subseteq B\). Counter‑example: \(A=\{1,2\},\;B=\{3\}\) gives \(A\cap(A\cup B)=\{1,2\}\) but \(A\cap B=\varnothing\).</div>
+    <p><strong>Proof of the absorption law \(A\cap(A\cup B)=A\).</strong> Let \(x\) be arbitrary:</p>
+    \[
+    \begin{aligned}
+    x\in A\cap(A\cup B)
+    &\iff x\in A \ \text{and}\ x\in A\cup B\\
+    &\iff x\in A \ \text{and}\ (x\in A \ \text{or}\ x\in B)\\
+    &\iff x\in A .
+    \end{aligned}
+    \]
+    <p>Hence \(A\cap(A\cup B)\subseteq A\) and \(A\subseteq A\cap(A\cup B)\), so the sets are equal. \(\blacksquare\)</p>
+    <div class="ans"><strong>Answer:</strong> \(A\cap(A\cup B)=A\). The printed right‑hand side \(A\cap B\) is a typographical error.</div>
+  </div>
+  <span class="src">Special paper Q1(g) · Supplementary 2024 Q1(g)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">A2.</span> Prove that \((A\cup B)\cap(A\cup C)=A\cup(B\cap C)\).</div>
+  <div class="sol">
+    <p>Let \(x\) be arbitrary.</p>
+    \[
+    \begin{aligned}
+    x\in (A\cup B)\cap(A\cup C)
+    &\iff (x\in A \text{ or } x\in B)\ \text{and}\ (x\in A \text{ or } x\in C)\\
+    &\iff x\in A \ \text{or}\ (x\in B \text{ and } x\in C)\\
+    &\iff x\in A\cup(B\cap C).
+    \end{aligned}
+    \]
+    <p>The middle step is the distributive law of “or” over “and” in logic. \(\blacksquare\)</p>
+    <div class="ans"><strong>Answer:</strong> \((A\cup B)\cap(A\cup C)=A\cup(B\cap C)\) — distributivity of \(\cup\) over \(\cap\).</div>
+  </div>
+  <span class="src">Main paper (5) Q2(a) · Main paper (8) Q2(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">A3.</span> Prove that \(\big((A\cap B)\cup C\big)=(A\cup C)\cap(B\cup C)\).</div>
+  <div class="sol">
+    <div class="note"><strong>Printed right side is \((A\cup C)\cup(B\cup C)\)</strong>, which is false (take \(A=\{1\},B=\varnothing,C=\varnothing\): LHS \(=\varnothing\), RHS \(=\{1\}\)). The correct connective is \(\cap\).</div>
+    \[
+    \begin{aligned}
+    x\in (A\cap B)\cup C
+    &\iff (x\in A \text{ and } x\in B)\ \text{or}\ x\in C\\
+    &\iff (x\in A \text{ or } x\in C)\ \text{and}\ (x\in B \text{ or } x\in C)\\
+    &\iff x\in (A\cup C)\cap(B\cup C). \qquad\blacksquare
+    \end{aligned}
+    \]
+    <div class="ans"><strong>Answer:</strong> \((A\cap B)\cup C=(A\cup C)\cap(B\cup C)\).</div>
+  </div>
+  <span class="src">Special paper Q3(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">A4.</span> Prove that \((A\cap B)^{c}=A^{c}\cup B^{c}\) by the element‑argument method (De Morgan’s law).</div>
+  <div class="sol">
+    <p>Let the universal set be \(U\) and let \(x\in U\) be arbitrary.</p>
+    \[
+    \begin{aligned}
+    x\in (A\cap B)^{c}
+    &\iff \neg\big(x\in A\cap B\big)\\
+    &\iff \neg\big(x\in A\ \text{and}\ x\in B\big)\\
+    &\iff \neg(x\in A)\ \text{or}\ \neg(x\in B)\\
+    &\iff x\in A^{c}\ \text{or}\ x\in B^{c}\\
+    &\iff x\in A^{c}\cup B^{c}.
+    \end{aligned}
+    \]
+    <p>Each step is a biconditional, so \((A\cap B)^{c}\subseteq A^{c}\cup B^{c}\) and \(A^{c}\cup B^{c}\subseteq (A\cap B)^{c}\); hence equality. \(\blacksquare\)</p>
+    <div class="ans"><strong>Answer:</strong> \((A\cap B)^{c}=A^{c}\cup B^{c}\) — De Morgan’s first law.</div>
+  </div>
+  <span class="src">Part‑time paper Q1(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">A5.</span> Prove that \(\overline{\big((A\cap B)\cup C\big)}=\overline{(A\cup C)}\cup\overline{(B\cup C)}\).</div>
+  <div class="sol">
+    <p>Write \(\overline{X}=X^{c}\). Using De Morgan and distributivity:</p>
+    \[
+    \begin{aligned}
+    \overline{(A\cap B)\cup C}
+    &=(A\cap B)^{c}\cap C^{c}\\
+    &=(A^{c}\cup B^{c})\cap C^{c}\\
+    &=(A^{c}\cap C^{c})\cup(B^{c}\cap C^{c})\\
+    &=\overline{(A\cup C)}\cup\overline{(B\cup C)}. \qquad\blacksquare
+    \end{aligned}
+    \]
+    <div class="note">The paper prints \(\cap\) between the two complement terms; as shown, the correct connective is \(\cup\).</div>
+    <div class="ans"><strong>Answer:</strong> \(\overline{(A\cap B)\cup C}=\overline{(A\cup C)}\cup\overline{(B\cup C)}\).</div>
+  </div>
+  <span class="src">Main paper (7) Q2(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">A6.</span> Prove that \(A\cup(B-A)=A\cup B\).</div>
+  <div class="sol">
+    \[
+    \begin{aligned}
+    x\in A\cup(B-A)
+    &\iff x\in A \ \text{or}\ (x\in B \text{ and } x\notin A)\\
+    &\iff x\in A\ \text{or}\ x\in B\\
+    &\iff x\in A\cup B. \qquad\blacksquare
+    \end{aligned}
+    \]
+    <div class="ans"><strong>Answer:</strong> \(A\cup(B-A)=A\cup B\).</div>
+  </div>
+  <span class="src">Main paper (8) Q5(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">A7.</span> Given \(A=\{a,b,c\}\), \(B=\{c,d,e\}\) and \(C=\{d,e,f\}\), show that \(A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\).</div>
+  <div class="sol">
+    <p>\(B\cup C=\{c,d,e,f\}\), so</p>
+    \[
+    A\cap(B\cup C)=\{a,b,c\}\cap\{c,d,e,f\}=\{c\}.
+    \]
+    <p>Also \(A\cap B=\{c\}\) and \(A\cap C=\{a,b,c\}\cap\{d,e,f\}=\varnothing\), so</p>
+    \[
+    (A\cap B)\cup(A\cap C)=\{c\}\cup\varnothing=\{c\}.
+    \]
+    <div class="ans"><strong>Answer:</strong> Both sides equal \(\{c\}\), so the expressions <em>are</em> equal. (The paper asks to show “\(\neq\)” — a misprint; the distributive law gives equality.)</div>
+  </div>
+  <span class="src">Main paper (8) Q1(h)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">A8.</span> Let \(A=\{a,b,c,d\}\), \(B=\{a,c,e\}\), \(C=\{a,e\}\). Show that \(A\cap(B\cap C)=(A\cap B)\cap C\).</div>
+  <div class="sol">
+    <p>\(B\cap C=\{a,c,e\}\cap\{a,e\}=\{a\}\), hence</p>
+    \[
+    A\cap(B\cap C)=\{a,b,c,d\}\cap\{a\}=\{a\}.
+    \]
+    <p>Also \(A\cap B=\{a,c\}\), hence</p>
+    \[
+    (A\cap B)\cap C=\{a,c\}\cap\{a,e\}=\{a\}.
+    \]
+    <div class="ans"><strong>Answer:</strong> Both sides \(=\{a\}\). Intersection is associative.</div>
+  </div>
+  <span class="src">Supplementary 2024 Q3(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">A9.</span> Let \(A=\{0,1,2,3,4\}\), \(B=\{2,3,q,r,s\}\), \(C=\{2,r,p\}\). Find (i) \(A\cup B\) (ii) \(A\cup C\) (iii) \(A\cup B\cup C\) (iv) \(A\cap B\) (v) \(A\cap B\cap C\).</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) \(A\cup B=\{0,1,2,3,4,q,r,s\}\)</li>
+      <li>(ii) \(A\cup C=\{0,1,2,3,4,p,r\}\)</li>
+      <li>(iii) \(A\cup B\cup C=\{0,1,2,3,4,p,q,r,s\}\)</li>
+      <li>(iv) \(A\cap B=\{2,3\}\)</li>
+      <li>(v) \(A\cap B\cap C=\{2\}\)</li>
+    </ul>
+  </div>
+  <span class="src">Part‑time paper Q1(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">A10.</span> Find the cardinality of the power set of \(A=\{1,2,3,4\}\).</div>
+  <div class="sol">
+    <p>\(|A|=4\), so \(\big|\mathcal{P}(A)\big|=2^{4}=16\).</p>
+    <div class="ans"><strong>Answer:</strong> \(|\mathcal{P}(A)|=16\).</div>
+  </div>
+  <span class="src">Special paper Q2(e) · Supplementary 2024 Q2(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">A11.</span> Given \(A=\{a,e,o,u\}\), find \(\mathcal{P}(A)\).</div>
+  <div class="sol">
+    <p>\(|A|=4\), so there are \(2^{4}=16\) subsets:</p>
+    <p>\(\varnothing,\ \{a\},\ \{e\},\ \{o\},\ \{u\},\ \{a,e\},\ \{a,o\},\ \{a,u\},\ \{e,o\},\ \{e,u\},\ \{o,u\},\ \{a,e,o\},\ \{a,e,u\},\ \{a,o,u\},\ \{e,o,u\},\ \{a,e,o,u\}\).</p>
+  </div>
+  <span class="src">Main paper (5) Q4(d) · Main paper (7) Q4(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">A12.</span> Given \(A=\{a,b,c\}\), find the power set of \(A\).</div>
+  <div class="sol">
+    <p>\(\mathcal{P}(A)=\big\{\varnothing,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\big\}\), so \(|\mathcal{P}(A)|=2^{3}=8\).</p>
+  </div>
+  <span class="src">Main paper (8) Q3(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">A13.</span> Two sets have \(m\) and \(k\) elements. If the total number of subsets of the first set is 112 more than that of the second set, find the values of \(m\) and \(k\).</div>
+  <div class="sol">
+    \[
+    2^{m}-2^{k}=112 \;\Longrightarrow\; 2^{k}\big(2^{m-k}-1\big)=112 .
+    \]
+    <p>Since \(112=16\times 7=2^{4}(2^{3}-1)\), we match factors:</p>
+    \[
+    2^{k}=2^{4}\Rightarrow k=4,\qquad 2^{m-k}-1=7\Rightarrow m-k=3\Rightarrow m=7 .
+    \]
+    <p><em>Check:</em> \(2^{7}-2^{4}=128-16=112\). ✓</p>
+    <div class="ans"><strong>Answer:</strong> \(m=7,\ k=4\).</div>
+  </div>
+  <span class="src">Main paper (6) Q1(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">A14.</span> State whether each statement is true or false:<br>
+    (i) \(\{a,b,c\}=\{a,a,b,c\}\)<br>
+    (ii) \(\{a,b,e\}=\{e,b,a,c\}\)<br>
+    (iii) \(\{1,2,3\}=\{2,1,1\}\)<br>
+    (iv) \(\{x:x^{2}=4\}=\{x:-2,-1,0,1,2\}\)<br>
+    (v) \(\{x:|x|\le 2\}=\{x:-2\le x\le 2\}\)<br>
+    (vi) The empty set \(\varnothing\) is a subset of any set and a set is always a subset of itself.</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) <strong>True</strong> — repetition does not change a set.</li>
+      <li>(ii) <strong>False</strong> — \(c\notin\{a,b,e\}\).</li>
+      <li>(iii) <strong>False</strong> — \(3\notin\{2,1,1\}=\{1,2\}\).</li>
+      <li>(iv) <strong>False</strong> — \(\{x:x^{2}=4\}=\{-2,2\}\neq\{-2,-1,0,1,2\}\).</li>
+      <li>(v) <strong>True</strong> — both describe the closed interval \([-2,2]\).</li>
+      <li>(vi) <strong>True</strong> — \(\varnothing\subseteq X\) and \(X\subseteq X\) for every set \(X\).</li>
+    </ul>
+  </div>
+  <span class="src">Main paper (6) Q2(a)</span>
+</div>
+
+<h3 class="sub">A‑II. Venn‑diagram survey problems</h3>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">A15.</span> In a survey of 400 students in a college, 100 were listed as studying typing (T) and 150 as doing accounting (A); 75 were registered for both courses. Find (i) the number not registered for either course, (ii) the number registered for typing only.</div>
+  <div class="sol">
+    <p>\(|T\cup A|=100+150-75=175\).</p>
+    <svg class="venn" viewBox="0 0 400 250" role="img" aria-label="Venn diagram: typing and accounting">
+      <title>Typing (T) and Accounting (A)</title>
+      <circle cx="150" cy="125" r="85" fill="rgba(37,99,235,.12)" stroke="#2563eb"/>
+      <circle cx="250" cy="125" r="85" fill="rgba(16,185,129,.12)" stroke="#10b981"/>
+      <text class="name" x="90" y="48">T</text>
+      <text class="name" x="300" y="48">A</text>
+      <text x="105" y="130">25</text>
+      <text x="189" y="130">75</text>
+      <text x="278" y="130">75</text>
+      <text x="352" y="60">225</text>
+      <text x="340" y="80" class="small">neither</text>
+    </svg>
+    <ul class="tight">
+      <li>(i) Neither \(=400-175=\mathbf{225}\)</li>
+      <li>(ii) Typing only \(=100-75=\mathbf{25}\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> (i) 225 students, (ii) 25 students.</div>
+  </div>
+  <span class="src">Special paper Q4(c) · Supplementary 2024 Q4(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">7 marks</span>
+  <div class="question"><span class="qnum">A16.</span> In a survey of 70 students, 28 know English, 29 know French and 26 know German. 11 know English and French, 12 know French and German, 7 know English and German, and 5 know all three languages. Find (i) the number who know at least one language, (ii) exactly two languages, (iii) English and French but not German, (iv) none of the languages.</div>
+  <div class="sol">
+    <p>Let \(E,F,G\) denote the three languages, with triple intersection \(=5\).</p>
+    \[
+    |E\cup F\cup G|=28+29+26-11-12-7+5=58 .
+    \]
+    <p>Region counts:</p>
+    <ul class="tight">
+      <li>\(E\) only \(=28-11-7+5=15\)</li>
+      <li>\(F\) only \(=29-11-12+5=11\)</li>
+      <li>\(G\) only \(=26-12-7+5=12\)</li>
+      <li>\(E\cap F\) only \(=11-5=6\)</li>
+      <li>\(F\cap G\) only \(=12-5=7\)</li>
+      <li>\(E\cap G\) only \(=7-5=2\)</li>
+    </ul>
+    <svg class="venn" viewBox="0 0 400 340" role="img" aria-label="Venn diagram: English, French, German">
+      <title>English (E), French (F), German (G)</title>
+      <circle cx="145" cy="130" r="85" fill="rgba(37,99,235,.12)" stroke="#2563eb"/>
+      <circle cx="255" cy="130" r="85" fill="rgba(16,185,129,.12)" stroke="#10b981"/>
+      <circle cx="200" cy="215" r="85" fill="rgba(245,158,11,.12)" stroke="#f59e0b"/>
+      <text class="name" x="58" y="52">E</text>
+      <text class="name" x="325" y="52">F</text>
+      <text class="name" x="192" y="332">G</text>
+      <text x="102" y="120">15</text>
+      <text x="193" y="110">6</text>
+      <text x="286" y="120">11</text>
+      <text x="142" y="197">2</text>
+      <text x="243" y="197">7</text>
+      <text x="193" y="283">12</text>
+      <text x="193" y="170">5</text>
+      <text x="350" y="58">12</text>
+      <text x="338" y="78" class="small">none</text>
+    </svg>
+    <div class="ans">
+      (i) At least one \(=\mathbf{58}\)<br>
+      (ii) Exactly two \(=6+7+2=\mathbf{15}\)<br>
+      (iii) English &amp; French but not German \(=\mathbf{6}\)<br>
+      (iv) None \(=70-58=\mathbf{12}\)
+    </div>
+  </div>
+  <span class="src">Main paper (6) Q1(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">9 marks</span>
+  <div class="question"><span class="qnum">A17.</span> Each of 100 first‑year students studies at least one of Mathematics, Electronics and Accounting. 65 study Mathematics, 45 Electronics, 42 Accounting, 20 Mathematics and Electronics, 25 Mathematics and Accounting, 15 Electronics and Accounting. Find (i) the number studying all three, (ii) Mathematics and Electronics but not Accounting, (iii) only Electronics.</div>
+  <div class="sol">
+    <p>Let \(x\) be the number studying all three. Since every student studies at least one subject:</p>
+    \[
+    100=65+45+42-20-25-15+x=92+x \;\Longrightarrow\; x=8 .
+    \]
+    <ul class="tight">
+      <li>(ii) \(M\cap E\) only \(=20-8=12\)</li>
+      <li>(iii) \(E\) only \(=45-20-15+8=18\)</li>
+    </ul>
+    <svg class="venn" viewBox="0 0 400 340" role="img" aria-label="Venn diagram: Mathematics, Electronics, Accounting">
+      <title>Mathematics (M), Electronics (E), Accounting (A)</title>
+      <circle cx="145" cy="130" r="85" fill="rgba(37,99,235,.12)" stroke="#2563eb"/>
+      <circle cx="255" cy="130" r="85" fill="rgba(16,185,129,.12)" stroke="#10b981"/>
+      <circle cx="200" cy="215" r="85" fill="rgba(245,158,11,.12)" stroke="#f59e0b"/>
+      <text class="name" x="58" y="52">M</text>
+      <text class="name" x="325" y="52">E</text>
+      <text class="name" x="192" y="332">A</text>
+      <text x="102" y="120">28</text>
+      <text x="193" y="110">12</text>
+      <text x="286" y="120">18</text>
+      <text x="142" y="197">17</text>
+      <text x="243" y="197">7</text>
+      <text x="193" y="283">10</text>
+      <text x="193" y="170">8</text>
+    </svg>
+    <div class="ans"><strong>Answer:</strong> (i) 8, (ii) 12, (iii) 18.</div>
+  </div>
+  <span class="src">Main paper (5) Q4(a) · Main paper (7) Q4(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">9 marks</span>
+  <div class="question"><span class="qnum">A18.</span> Out of 120 students, 70 study Physics, 60 Chemistry, 50 Biology, 30 Physics and Chemistry, 25 Physics and Biology, 20 Chemistry and Biology. Find (i) all three, (ii) Physics and Chemistry but not Biology, (iii) only Chemistry.</div>
+  <div class="sol">
+    <p>Let \(x\) = all three. Every student studies at least one subject:</p>
+    \[
+    120=70+60+50-30-25-20+x=105+x\;\Longrightarrow\;x=15 .
+    \]
+    <ul class="tight">
+      <li>(ii) \(P\cap C\) only \(=30-15=15\)</li>
+      <li>(iii) \(C\) only \(=60-30-20+15=25\)</li>
+    </ul>
+    <svg class="venn" viewBox="0 0 400 340" role="img" aria-label="Venn diagram: Physics, Chemistry, Biology">
+      <title>Physics (P), Chemistry (C), Biology (B)</title>
+      <circle cx="145" cy="130" r="85" fill="rgba(37,99,235,.12)" stroke="#2563eb"/>
+      <circle cx="255" cy="130" r="85" fill="rgba(16,185,129,.12)" stroke="#10b981"/>
+      <circle cx="200" cy="215" r="85" fill="rgba(245,158,11,.12)" stroke="#f59e0b"/>
+      <text class="name" x="58" y="52">P</text>
+      <text class="name" x="325" y="52">C</text>
+      <text class="name" x="192" y="332">B</text>
+      <text x="102" y="120">30</text>
+      <text x="193" y="110">15</text>
+      <text x="286" y="120">25</text>
+      <text x="142" y="197">10</text>
+      <text x="243" y="197">5</text>
+      <text x="193" y="283">20</text>
+      <text x="193" y="170">15</text>
+    </svg>
+    <div class="ans"><strong>Answer:</strong> (i) 15, (ii) 15, (iii) 25.</div>
+  </div>
+  <span class="src">Main paper (8) Q3(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">10 marks</span>
+  <div class="question"><span class="qnum">A19.</span> Out of 1191 middle‑school students: 807 use Facebook, 707 use YouTube, 908 use iTunes; 526 use Facebook and YouTube, 667 use YouTube and iTunes, 593 use Facebook and iTunes; 489 use all three. Find (i) iTunes only, (ii) exactly two websites, (iii) exactly one website, (iv) none, (v) at least two.</div>
+  <div class="sol">
+    <p>Region counts (subtract the triple from each pairwise figure):</p>
+    <ul class="tight">
+      <li>Facebook only \(=807-526-593+489=177\)</li>
+      <li>YouTube only \(=707-526-667+489=3\)</li>
+      <li>iTunes only \(=908-667-593+489=137\)</li>
+      <li>FB &amp; YT only \(=526-489=37\)</li>
+      <li>YT &amp; iT only \(=667-489=178\)</li>
+      <li>FB &amp; iT only \(=593-489=104\)</li>
+      <li>All three \(=489\)</li>
+    </ul>
+    <svg class="venn" viewBox="0 0 400 340" role="img" aria-label="Venn diagram: Facebook, YouTube, iTunes">
+      <title>Facebook (F), YouTube (Y), iTunes (I)</title>
+      <circle cx="145" cy="130" r="85" fill="rgba(37,99,235,.12)" stroke="#2563eb"/>
+      <circle cx="255" cy="130" r="85" fill="rgba(16,185,129,.12)" stroke="#10b981"/>
+      <circle cx="200" cy="215" r="85" fill="rgba(245,158,11,.12)" stroke="#f59e0b"/>
+      <text class="name" x="58" y="52">F</text>
+      <text class="name" x="325" y="52">Y</text>
+      <text class="name" x="192" y="332">I</text>
+      <text x="98" y="120">177</text>
+      <text x="193" y="110">37</text>
+      <text x="288" y="120">3</text>
+      <text x="138" y="197">104</text>
+      <text x="243" y="197">178</text>
+      <text x="193" y="283">137</text>
+      <text x="193" y="170">489</text>
+      <text x="348" y="58">66</text>
+      <text x="336" y="78" class="small">none</text>
+    </svg>
+    <div class="ans">
+      (i) iTunes only \(=\mathbf{137}\)<br>
+      (ii) Exactly two \(=37+178+104=\mathbf{319}\)<br>
+      (iii) Exactly one \(=177+3+137=\mathbf{317}\)<br>
+      (iv) None \(=1191-(177+3+137+37+178+104+489)=1191-1125=\mathbf{66}\)<br>
+      (v) At least two \(=37+178+104+489=\mathbf{808}\)
+    </div>
+  </div>
+  <span class="src">Main paper (6) Q5(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">A20.</span> In a class of 50 Kabarak University students, 30 are studying calculus, 25 are studying complex analysis and 10 are studying both units. (i) Represent the information in a Venn diagram (calculus = A, complex analysis = B). (ii) How many students are studying either unit? (iii) Determine \(\left|A^{c}\cap B^{c}\right|\).</div>
+  <div class="sol">
+    <p>Calculus only \(=30-10=20\); complex analysis only \(=25-10=15\).</p>
+    <svg class="venn" viewBox="0 0 400 250" role="img" aria-label="Venn diagram: calculus and complex analysis">
+      <title>Calculus (A) and Complex Analysis (B)</title>
+      <circle cx="150" cy="125" r="85" fill="rgba(37,99,235,.12)" stroke="#2563eb"/>
+      <circle cx="250" cy="125" r="85" fill="rgba(16,185,129,.12)" stroke="#10b981"/>
+      <text class="name" x="90" y="48">A</text>
+      <text class="name" x="300" y="48">B</text>
+      <text x="105" y="130">20</text>
+      <text x="189" y="130">10</text>
+      <text x="278" y="130">15</text>
+      <text x="352" y="60">5</text>
+      <text x="340" y="80" class="small">neither</text>
+    </svg>
+    <ul class="tight">
+      <li>(ii) \(|A\cup B|=30+25-10=\mathbf{45}\)</li>
+      <li>(iii) \(|A^{c}\cap B^{c}|=|(A\cup B)^{c}|=50-45=\mathbf{5}\)</li>
+    </ul>
+  </div>
+  <span class="src">Part‑time paper Q1(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">10 marks</span>
+  <div class="question"><span class="qnum">A21.</span> A market researcher investigating consumers’ preference for three brands of beverages — coffee, tea and cocoa — in Kabarak University gathered the following information. From a sample of 800 consumers, 230 took coffee, 245 took tea and 325 took cocoa, 30 took all the beverages, 70 took coffee and cocoa, 110 took coffee only and 185 took cocoa only. Required: (i) a Venn diagram; (ii) the number who took tea only; (iii) tea and coffee only; (iv) tea and cocoa only.</div>
+  <div class="sol">
+    <p>Let \(C\) = coffee, \(T\) = tea, \(K\) = cocoa.</p>
+    <ul class="tight">
+      <li>Coffee &amp; cocoa only \(=70-30=40\)</li>
+      <li>Coffee &amp; tea only: \(110+x+40+30=230\Rightarrow x=50\)</li>
+      <li>Cocoa &amp; tea only: \(185+40+y+30=325\Rightarrow y=70\)</li>
+      <li>Tea only: \(245-\big(50+70+30\big)=95\)</li>
+    </ul>
+    <svg class="venn" viewBox="0 0 400 340" role="img" aria-label="Venn diagram: coffee, tea, cocoa">
+      <title>Coffee (C), Tea (T), Cocoa (K)</title>
+      <circle cx="145" cy="130" r="85" fill="rgba(37,99,235,.12)" stroke="#2563eb"/>
+      <circle cx="255" cy="130" r="85" fill="rgba(16,185,129,.12)" stroke="#10b981"/>
+      <circle cx="200" cy="215" r="85" fill="rgba(245,158,11,.12)" stroke="#f59e0b"/>
+      <text class="name" x="58" y="52">C</text>
+      <text class="name" x="325" y="52">T</text>
+      <text class="name" x="192" y="332">K</text>
+      <text x="98" y="120">110</text>
+      <text x="193" y="110">50</text>
+      <text x="288" y="120">95</text>
+      <text x="138" y="197">40</text>
+      <text x="243" y="197">70</text>
+      <text x="193" y="283">185</text>
+      <text x="193" y="170">30</text>
+      <text x="350" y="58">220</text>
+      <text x="336" y="78" class="small">none</text>
+    </svg>
+    <div class="ans"><strong>Answer:</strong> (ii) tea only \(=95\); (iii) tea &amp; coffee only \(=50\); (iv) tea &amp; cocoa only \(=70\). (None \(=220\).)</div>
+  </div>
+  <span class="src">Part‑time paper Q4(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">A22.</span> If \(A\) and \(B\) are two sets such that \(n(B-A)=2\,n(A-B)=4\,n(A\cap B)\) and \(n(A\cup B)=14\), find \(n\big(\mathcal{P}(A)\big)\).</div>
+  <div class="sol">
+    <p>Let \(n(A\cap B)=x\). Then \(n(A-B)=2x\) and \(n(B-A)=4x\).</p>
+    \[
+    n(A\cup B)=4x+2x+x=7x=14\;\Longrightarrow\;x=2 .
+    \]
+    \[
+    n(A)=n(A-B)+n(A\cap B)=2x+x=3x=6 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(n(A)=6\), so \(\big|\mathcal{P}(A)\big|=2^{6}=\mathbf{64}\).</div>
+  </div>
+  <span class="src">Main paper (6) Q4(a)</span>
+</div>
+
+<h3 class="sub">A‑III. Venn‑diagram illustrations</h3>
+
+<div class="q">
+  <span class="marks">8 marks</span>
+  <div class="question"><span class="qnum">A23.</span> Use Venn diagrams to illustrate the following sets: (i) \(A\cap B\) (ii) \(A\cup B\) (iii) \(A\triangle B\) (symmetric difference) (iv) \(A\cup B\cup C\) (v) \(A-B\).</div>
+  <div class="sol">
+    <p><strong>(i) \(A\cap B\)</strong> — the overlap region.</p>
+    <svg class="venn" viewBox="0 0 360 200" role="img" aria-label="A intersection B">
+      <circle cx="130" cy="100" r="70" fill="rgba(37,99,235,.08)" stroke="#2563eb"/>
+      <circle cx="230" cy="100" r="70" fill="rgba(16,185,129,.08)" stroke="#10b981"/>
+      <clipPath id="clipAB"><circle cx="130" cy="100" r="70"/></clipPath>
+      <circle cx="230" cy="100" r="70" fill="rgba(37,99,235,.45)" clip-path="url(#clipAB)"/>
+      <text class="name" x="70" y="40">A</text>
+      <text class="name" x="280" y="40">B</text>
+    </svg>
+
+    <p><strong>(ii) \(A\cup B\)</strong> — everything inside either circle.</p>
+    <svg class="venn" viewBox="0 0 360 200" role="img" aria-label="A union B">
+      <circle cx="130" cy="100" r="70" fill="rgba(37,99,235,.35)" stroke="#2563eb"/>
+      <circle cx="230" cy="100" r="70" fill="rgba(37,99,235,.35)" stroke="#10b981"/>
+      <text class="name" x="70" y="40">A</text>
+      <text class="name" x="280" y="40">B</text>
+    </svg>
+
+    <p><strong>(iii) \(A\triangle B\)</strong> — symmetric difference: in exactly one of the two sets.</p>
+    <svg class="venn" viewBox="0 0 360 200" role="img" aria-label="A symmetric difference B">
+      <circle cx="130" cy="100" r="70" fill="rgba(37,99,235,.4)" stroke="#2563eb"/>
+      <circle cx="230" cy="100" r="70" fill="rgba(37,99,235,.4)" stroke="#10b981"/>
+      <clipPath id="clipSym"><circle cx="130" cy="100" r="70"/></clipPath>
+      <circle cx="230" cy="100" r="70" fill="#fff" clip-path="url(#clipSym)"/>
+      <text class="name" x="70" y="40">A</text>
+      <text class="name" x="280" y="40">B</text>
+    </svg>
+
+    <p><strong>(iv) \(A\cup B\cup C\)</strong> — the union of three sets.</p>
+    <svg class="venn" viewBox="0 0 380 300" role="img" aria-label="A union B union C">
+      <circle cx="140" cy="110" r="70" fill="rgba(37,99,235,.28)" stroke="#2563eb"/>
+      <circle cx="240" cy="110" r="70" fill="rgba(37,99,235,.28)" stroke="#10b981"/>
+      <circle cx="190" cy="190" r="70" fill="rgba(37,99,235,.28)" stroke="#f59e0b"/>
+      <text class="name" x="62" y="42">A</text>
+      <text class="name" x="318" y="42">B</text>
+      <text class="name" x="182" y="288">C</text>
+    </svg>
+
+    <p><strong>(v) \(A-B\)</strong> — elements of \(A\) that are not in \(B\).</p>
+    <svg class="venn" viewBox="0 0 360 200" role="img" aria-label="A minus B">
+      <circle cx="130" cy="100" r="70" fill="rgba(37,99,235,.45)" stroke="#2563eb"/>
+      <circle cx="230" cy="100" r="70" fill="#fff" stroke="#10b981"/>
+      <text class="name" x="70" y="40">A</text>
+      <text class="name" x="280" y="40">B</text>
+    </svg>
+  </div>
+  <span class="src">Main paper (6) Q3(c)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART B : FUNCTIONS                                                 -->
+<!-- ================================================================= -->
+<h2 class="part" id="partB">Part B — Functions, Inverses &amp; Compositions</h2>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">B1.</span> Given \(f(x)=x^{2}\) and \(g(x)=x+5\), find \((g\circ f)(x)\).</div>
+  <div class="sol">
+    \[
+    (g\circ f)(x)=g\big(f(x)\big)=g(x^{2})=x^{2}+5 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \((g\circ f)(x)=x^{2}+5\).</div>
+  </div>
+  <span class="src">Special paper Q1(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">B2.</span> Find \((f\circ g)(x)\) where \(f(x)=x^{2}+1\) and \(g(x)=3x-2\).</div>
+  <div class="sol">
+    \[
+    (f\circ g)(x)=f(3x-2)=(3x-2)^{2}+1=9x^{2}-12x+4+1=9x^{2}-12x+5 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \((f\circ g)(x)=9x^{2}-12x+5\).</div>
+  </div>
+  <span class="src">Main paper (8) Q1(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">B3.</span> Given \(f(x)=3x-2\) and \(g(x)=\tfrac{1}{3}x+\tfrac{2}{3}\), find \((f\circ g)(x)\).</div>
+  <div class="sol">
+    \[
+    (f\circ g)(x)=f\!\left(\tfrac{x}{3}+\tfrac{2}{3}\right)=3\!\left(\tfrac{x}{3}+\tfrac{2}{3}\right)-2=x+2-2=x .
+    \]
+    <div class="ans"><strong>Answer:</strong> \((f\circ g)(x)=x\). (Here \(f\) and \(g\) are inverses of one another.)</div>
+  </div>
+  <span class="src">Supplementary 2024 Q1(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">B4.</span> Find \(\{f\circ g\circ f\}(x)\) where \(f(x)=x^{2}\) and \(g(x)=x-1\).</div>
+  <div class="sol">
+    \[
+    (f\circ g\circ f)(x)=f\big(g(f(x))\big)=f\big(x^{2}-1\big)=(x^{2}-1)^{2}=x^{4}-2x^{2}+1 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \((f\circ g\circ f)(x)=(x^{2}-1)^{2}=x^{4}-2x^{2}+1\).</div>
+  </div>
+  <span class="src">Main paper (7) Q1(h)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">B5.</span> Given \(f(x)=\dfrac{4x+2}{7}\), find \(f^{-1}(x)\) and verify it.</div>
+  <div class="sol">
+    <p>Let \(y=\dfrac{4x+2}{7}\). Then \(7y=4x+2\Rightarrow 4x=7y-2\Rightarrow x=\dfrac{7y-2}{4}\). Hence</p>
+    \[
+    f^{-1}(x)=\frac{7x-2}{4}.
+    \]
+    <p><strong>Verification.</strong></p>
+    \[
+    f\big(f^{-1}(x)\big)=\frac{4\left(\frac{7x-2}{4}\right)+2}{7}=\frac{(7x-2)+2}{7}=\frac{7x}{7}=x .
+    \]
+    \[
+    f^{-1}\big(f(x)\big)=\frac{7\left(\frac{4x+2}{7}\right)-2}{4}=\frac{(4x+2)-2}{4}=\frac{4x}{4}=x .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(f^{-1}(x)=\dfrac{7x-2}{4}\); verified in both directions.</div>
+  </div>
+  <span class="src">Special paper Q2(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">B6.</span> Given \(h(x)=\dfrac{x+4}{2x-5}\), find \(h^{-1}(x)\) and verify it.</div>
+  <div class="sol">
+    <p>Let \(y=\dfrac{x+4}{2x-5}\). Then</p>
+    \[
+    y(2x-5)=x+4 \Rightarrow 2xy-5y=x+4 \Rightarrow x(2y-1)=4+5y \Rightarrow x=\frac{4+5y}{2y-1}.
+    \]
+    \[
+    h^{-1}(x)=\frac{4+5x}{2x-1}.
+    \]
+    <p><strong>Verification.</strong></p>
+    \[
+    h\big(h^{-1}(x)\big)=\frac{\frac{4+5x}{2x-1}+4}{2\left(\frac{4+5x}{2x-1}\right)-5}
+    =\frac{4+5x+8x-4}{8+10x-10x+5}=\frac{13x}{13}=x .\;\checkmark
+    \]
+    <div class="ans"><strong>Answer:</strong> \(h^{-1}(x)=\dfrac{4+5x}{2x-1}\).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q2(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">B7.</span> Given \(f(x)=\dfrac{5x+2}{x-1}\), find \(f^{-1}(x)\).</div>
+  <div class="sol">
+    <p>Let \(y=\dfrac{5x+2}{x-1}\). Then \(y(x-1)=5x+2\Rightarrow xy-y=5x+2\Rightarrow x(y-5)=y+2\).</p>
+    \[
+    f^{-1}(x)=\frac{x+2}{x-5}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(f^{-1}(x)=\dfrac{x+2}{x-5}\).</div>
+  </div>
+  <span class="src">Main paper (8) Q1(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">B8.</span> Let \(f(x)=2x-3\) and \(g(x)=\dfrac{x+1}{5}\). Find \(f^{-1}(x)\) and \(g^{-1}(x)\).</div>
+  <div class="sol">
+    <p>For \(f\): \(y=2x-3\Rightarrow x=\dfrac{y+3}{2}\), so \(f^{-1}(x)=\dfrac{x+3}{2}\).</p>
+    <p>For \(g\): \(y=\dfrac{x+1}{5}\Rightarrow x=5y-1\), so \(g^{-1}(x)=5x-1\).</p>
+    <div class="ans"><strong>Answer:</strong> \(f^{-1}(x)=\dfrac{x+3}{2}\), \(\;g^{-1}(x)=5x-1\).</div>
+  </div>
+  <span class="src">Main paper (5) Q4(c) · Main paper (7) Q4(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">B9.</span> Let \(f(x)=3x-2\) and \(g(x)=\dfrac{1}{x+5}\). Find \(f^{-1}(x)\) and \(g^{-1}(x)\).</div>
+  <div class="sol">
+    <p>\(f^{-1}(x)=\dfrac{x+2}{3}\).</p>
+    <p>For \(g\): \(y=\dfrac{1}{x+5}\Rightarrow x+5=\dfrac{1}{y}\Rightarrow x=\dfrac{1}{y}-5\), so \(g^{-1}(x)=\dfrac{1}{x}-5=\dfrac{1-5x}{x}\).</p>
+    <div class="ans"><strong>Answer:</strong> \(f^{-1}(x)=\dfrac{x+2}{3}\), \(\;g^{-1}(x)=\dfrac{1}{x}-5\).</div>
+  </div>
+  <span class="src">Main paper (8) Q3(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">B10.</span> Decide whether the following functions are even, odd or neither: (i) \(f(x)=4x^{2}-4\) (ii) \(g(x)=\dfrac{1}{5x}\) (iii) \(f(x)=x^{4}+x^{5}\).</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) \(f(-x)=4(-x)^{2}-4=4x^{2}-4=f(x)\) → <strong>even</strong>.</li>
+      <li>(ii) \(g(-x)=\dfrac{1}{5(-x)}=-\dfrac{1}{5x}=-g(x)\) → <strong>odd</strong>.</li>
+      <li>(iii) \(f(-x)=(-x)^{4}+(-x)^{5}=x^{4}-x^{5}\), which equals neither \(x^{4}+x^{5}\) nor \(-(x^{4}+x^{5})\) → <strong>neither</strong>.</li>
+    </ul>
+  </div>
+  <span class="src">Main paper (7) Q3(d)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART C : COUNTING                                                  -->
+<!-- ================================================================= -->
+<h2 class="part" id="partC">Part C — Counting: Permutations &amp; Combinations</h2>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">C1.</span> How many different 5‑letter words can be formed using the letters from “MATHWORKS” if no letter is repeated?</div>
+  <div class="sol">
+    <p>“MATHWORKS” has 9 distinct letters (M, A, T, H, W, O, R, K, S).</p>
+    \[
+    {}^{9}P_{5}=\frac{9!}{(9-5)!}=\frac{9!}{4!}=9\cdot8\cdot7\cdot6\cdot5=15\,120 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(15\,120\) words.</div>
+  </div>
+  <span class="src">Special paper Q1(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">C2.</span> In how many ways can the letters of the word SLOGGING be arranged?</div>
+  <div class="sol">
+    <p>SLOGGING has 8 letters with G repeated twice:</p>
+    \[
+    \frac{8!}{2!}=\frac{40\,320}{2}=20\,160 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(20\,160\) arrangements.</div>
+  </div>
+  <span class="src">Supplementary 2024 Q1(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">C3.</span> Find the number of ways in which the letters of the following words can be arranged: (i) PHARMACOLOGICALS (ii) BIOSTATISTICALL.</div>
+  <div class="sol">
+    <p><strong>(i) PHARMACOLOGICALS</strong> — 16 letters: A×3, O×2, L×2, C×2, and P, H, R, M, G, I, S each once.</p>
+    \[
+    \frac{16!}{3!\,2!\,2!\,2!}=\frac{20\,922\,789\,888\,000}{48}=435\,891\,456\,000 .
+    \]
+    <p><strong>(ii) BIOSTATISTICALL</strong> — 15 letters: I×3, T×3, S×2, A×2, L×2, and B, O, C each once.</p>
+    \[
+    \frac{15!}{3!\,3!\,2!\,2!\,2!}=\frac{1\,307\,674\,368\,000}{288}=4\,540\,536\,000 .
+    \]
+    <div class="ans"><strong>Answer:</strong> (i) \(435\,891\,456\,000\); (ii) \(4\,540\,536\,000\).</div>
+  </div>
+  <span class="src">Main paper (6) Q1(g)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">C4.</span> Consider the word TALLAHASSEE. (i) How many distinguishable arrangements of the word are possible? (ii) How many of these arrangements have no adjacent A’s? (iii) How many of these arrangements are the A’s together?</div>
+  <div class="sol">
+    <p>TALLAHASSEE has 11 letters: A×3, L×2, S×2, E×2, T×1, H×1.</p>
+    <p><strong>(i)</strong></p>
+    \[
+    \frac{11!}{3!\,2!\,2!\,2!}=\frac{39\,916\,800}{48}=831\,600 .
+    \]
+    <p><strong>(ii) No adjacent A’s.</strong> Arrange the other 8 letters (T, L, L, H, S, S, E, E):</p>
+    \[
+    \frac{8!}{2!\,2!\,2!}=\frac{40\,320}{8}=5\,040 .
+    \]
+    <p>These create 9 gaps; choose 3 for the A’s: \(\binom{9}{3}=84\).</p>
+    \[
+    5\,040\times84=423\,360 .
+    \]
+    <p><strong>(iii) The A’s together</strong> (treat AAA as one block → 9 objects with L×2, S×2, E×2):</p>
+    \[
+    \frac{9!}{2!\,2!\,2!}=\frac{362\,880}{8}=45\,360 .
+    \]
+    <div class="ans"><strong>Answer:</strong> (i) \(831\,600\); (ii) \(423\,360\); (iii) \(45\,360\).</div>
+  </div>
+  <span class="src">Part‑time paper Q2(a)(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">C5.</span> Five‑letter words are formed from the letters of the word TIEGROUP. How many of these have no repeated letters?</div>
+  <div class="sol">
+    <p>TIEGROUP has 8 distinct letters.</p>
+    \[
+    {}^{8}P_{5}=\frac{8!}{3!}=8\cdot7\cdot6\cdot5\cdot4=6\,720 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(6\,720\) words.</div>
+  </div>
+  <span class="src">Part‑time paper Q2(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">C6.</span> Find the value of \(n\) if \({}^{n}P_{2}=240\).</div>
+  <div class="sol">
+    \[
+    {}^{n}P_{2}=n(n-1)=240 .
+    \]
+    <p>Since \(16\times15=240\), we get \(n=16\).</p>
+    <div class="ans"><strong>Answer:</strong> \(n=16\).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q1(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">C7.</span> Find \(n\) if \({}^{n}P_{3}=60\).</div>
+  <div class="sol">
+    \[
+    {}^{n}P_{3}=n(n-1)(n-2)=60 .
+    \]
+    <p>Try \(n=5\): \(5\cdot4\cdot3=60\). ✓ (The printed symbol \(p_{n}=60\) / \(\Omega^{n}_{3}=60\) is read as \({}^{n}P_{3}\).)</p>
+    <div class="ans"><strong>Answer:</strong> \(n=5\).</div>
+  </div>
+  <span class="src">Special paper Q1(c) · Main paper (7) Q1(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">C8.</span> Find \(n\) if \({}^{18}C_{r}={}^{18}C_{r+2}\).</div>
+  <div class="sol">
+    <p>Using \({}^{n}C_{k}={}^{n}C_{n-k}\): either \(r=r+2\) (impossible) or \(r+(r+2)=18\).</p>
+    \[
+    2r+2=18\Rightarrow r=8 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(r=8\).</div>
+  </div>
+  <span class="src">Special paper Q4(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">C9.</span> Find \(n\) if \(\binom{n}{4}=210\).</div>
+  <div class="sol">
+    \[
+    \frac{n(n-1)(n-2)(n-3)}{24}=210 \Rightarrow n(n-1)(n-2)(n-3)=5\,040 .
+    \]
+    <p>Since \(10\cdot9\cdot8\cdot7=5\,040\), we get \(n=10\).</p>
+    <div class="ans"><strong>Answer:</strong> \(n=10\).</div>
+  </div>
+  <span class="src">Main paper (8) Q1(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C10.</span> Solve for \(n\): \({}^{n}C_{2}=15\).</div>
+  <div class="sol">
+    \[
+    \frac{n(n-1)}{2}=15 \Rightarrow n(n-1)=30 \Rightarrow n=6\ (6\cdot5=30).
+    \]
+    <div class="ans"><strong>Answer:</strong> \(n=6\).</div>
+  </div>
+  <span class="src">Main paper (6) Q4(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">C11.</span> Find \(n\) if \(\binom{n}{3}+\binom{n}{2}=56\).</div>
+  <div class="sol">
+    <p>By Pascal’s identity, \(\binom{n}{3}+\binom{n}{2}=\binom{n+1}{3}\).</p>
+    \[
+    \binom{n+1}{3}=56 \Rightarrow \frac{(n+1)n(n-1)}{6}=56 \Rightarrow n(n+1)(n-1)=336 .
+    \]
+    <p>Try \(n=7\): \(7\cdot8\cdot6=336\). ✓</p>
+    <div class="ans"><strong>Answer:</strong> \(n=7\).</div>
+  </div>
+  <span class="src">Main paper (8) Q4(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">C12.</span> Solve for \(n\) if \({}^{n+2}C_{2}\times{}^{n}C_{3}=210\).</div>
+  <div class="sol">
+    \[
+    \frac{(n+2)(n+1)}{2}\times\frac{n(n-1)(n-2)}{6}=210 .
+    \]
+    <p>Try \(n=5\): \(\frac{7\cdot6}{2}\times\frac{5\cdot4\cdot3}{6}=21\times10=210\). ✓</p>
+    <div class="ans"><strong>Answer:</strong> \(n=5\).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q4(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C13.</span> In how many ways can 3 boys and 2 girls be selected from a group of 5 boys and 4 girls?</div>
+  <div class="sol">
+    \[
+    \binom{5}{3}\times\binom{4}{2}=10\times6=60 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(60\) ways.</div>
+  </div>
+  <span class="src">Special paper Q3(a) · Supplementary 2024 Q3(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C14.</span> There are 8 men and 5 women. Find the number of ways to form a committee of 5 people if the committee must include at least 2 women.</div>
+  <div class="sol">
+    \[
+    \binom{5}{2}\binom{8}{3}+\binom{5}{3}\binom{8}{2}+\binom{5}{4}\binom{8}{1}+\binom{5}{5}\binom{8}{0}
+    \]
+    \[
+    =10\cdot56+10\cdot28+5\cdot8+1\cdot1=560+280+40+1=881 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(881\) committees.</div>
+  </div>
+  <span class="src">Main paper (5) Q2(b) · Main paper (8) Q2(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C15.</span> There are 6 men and 4 ladies. Find the number of ways in which a committee of 5 can be formed if the committee is to include at least two ladies.</div>
+  <div class="sol">
+    \[
+    \binom{4}{2}\binom{6}{3}+\binom{4}{3}\binom{6}{2}+\binom{4}{4}\binom{6}{1}
+    =6\cdot20+4\cdot15+1\cdot6=120+60+6=186 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(186\) committees.</div>
+  </div>
+  <span class="src">Main paper (6) Q1(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C16.</span> There are 7 men and 3 ladies. Find the number of ways in which a committee of 6 can be formed if the committee is to include at least two ladies.</div>
+  <div class="sol">
+    \[
+    \binom{3}{2}\binom{7}{4}+\binom{3}{3}\binom{7}{3}=3\cdot35+1\cdot35=105+35=140 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(140\) committees.</div>
+  </div>
+  <span class="src">Main paper (7) Q2(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">10 marks</span>
+  <div class="question"><span class="qnum">C17.</span> A committee of 6 members is to be chosen from a group of 9 men and 5 women. How many committees are possible if: (i) there are no restrictions; (ii) one particular person must be chosen; (iii) there are to be a majority of women; (iv) there are to be men only?</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) \(\binom{14}{6}=3\,003\)</li>
+      <li>(ii) \(\binom{13}{5}=1\,287\)</li>
+      <li>(iii) Majority women means 4, 5 or 6 women:
+      \[
+      \binom{5}{4}\binom{9}{2}+\binom{5}{5}\binom{9}{1}=5\cdot36+1\cdot9=180+9=189 .
+      \]</li>
+      <li>(iv) Men only: \(\binom{9}{6}=84\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> (i) 3003, (ii) 1287, (iii) 189, (iv) 84.</div>
+  </div>
+  <span class="src">Main paper (6) Q3(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C18.</span> Six students are to be selected from a group of 12. How many ways are there if (i) there are no restrictions; (ii) two specified individuals must be included in the 6?</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) \(\binom{12}{6}=924\)</li>
+      <li>(ii) \(\binom{10}{4}=210\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> (i) 924; (ii) 210.</div>
+  </div>
+  <span class="src">Special paper Q3(e) · Supplementary 2024 Q3(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">C19.</span> A committee is to be formed of 3 persons out of 12. Find the number of ways of forming such a committee.</div>
+  <div class="sol">
+    \[
+    \binom{12}{3}=220 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(220\) ways.</div>
+  </div>
+  <span class="src">Main paper (7) Q3(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">C20.</span> If a club has 20 members, how many different four‑member committees are possible?</div>
+  <div class="sol">
+    \[
+    \binom{20}{4}=4\,845 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(4\,845\) committees.</div>
+  </div>
+  <span class="src">Part‑time paper Q2(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">C21.</span> Five policemen are to be selected for duty from a force of 20. In how many ways can this be done?</div>
+  <div class="sol">
+    \[
+    \binom{20}{5}=15\,504 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(15\,504\) ways.</div>
+  </div>
+  <span class="src">Part‑time paper Q2(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C22.</span> In how many ways can 10 children be split into two groups of 4 and 6, if two children must be in the same group?</div>
+  <div class="sol">
+    <p>The two specified children can both be in the group of 4 or both in the group of 6.</p>
+    <ul class="tight">
+      <li>Both in the group of 4: choose the other 2 from the remaining 8 → \(\binom{8}{2}=28\)</li>
+      <li>Both in the group of 6: choose the other 4 from the remaining 8 → \(\binom{8}{4}=70\)</li>
+    </ul>
+    \[
+    28+70=98 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(98\) ways.</div>
+  </div>
+  <span class="src">Main paper (8) Q1(f)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">C23.</span> A girl wanted to invite 11 friends but there is only room for 6 of them. In how many ways can she choose whom to invite if two of them are sisters and must not be separated?</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>Both sisters included: choose 4 from the other 9 → \(\binom{9}{4}=126\)</li>
+      <li>Neither sister included: choose 6 from the other 9 → \(\binom{9}{6}=84\)</li>
+    </ul>
+    \[
+    126+84=210 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(210\) ways.</div>
+  </div>
+  <span class="src">Main paper (6) Q4(c)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART D : SEQUENCES                                                 -->
+<!-- ================================================================= -->
+<h2 class="part" id="partD">Part D — Sequences &amp; Series (AP &amp; GP)</h2>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">D1.</span> The first term of an arithmetic progression is 10 and the last term is 50. If the sum of all the terms is 480, find the common difference and the number of terms.</div>
+  <div class="sol">
+    \[
+    S_{n}=\frac{n}{2}(a+l)\Rightarrow 480=\frac{n}{2}(10+50)=30n\Rightarrow n=16 .
+    \]
+    \[
+    l=a+(n-1)d\Rightarrow 50=10+15d\Rightarrow d=\frac{40}{15}=\frac{8}{3}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(n=16\), \(d=\dfrac{8}{3}\).</div>
+  </div>
+  <span class="src">Special paper Q2(b) · Supplementary 2024 Q2(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">D2.</span> The 8th term of an arithmetic progression is 75 and the 20th term is 39. Find the first term and the common difference.</div>
+  <div class="sol">
+    \[
+    a+7d=75,\qquad a+19d=39 .
+    \]
+    <p>Subtracting: \(12d=-36\Rightarrow d=-3\). Then \(a=75-7(-3)=96\).</p>
+    <div class="ans"><strong>Answer:</strong> \(a=96\), \(d=-3\).</div>
+  </div>
+  <span class="src">Main paper (6) Q1(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D3.</span> The 10th and 18th terms of an AP are 41 and 73 respectively. Find (i) the 31st term and (ii) the 25th term.</div>
+  <div class="sol">
+    \[
+    a+9d=41,\qquad a+17d=73 .
+    \]
+    <p>Subtracting: \(8d=32\Rightarrow d=4\); then \(a=41-36=5\).</p>
+    <ul class="tight">
+      <li>(i) \(a_{31}=5+30(4)=125\)</li>
+      <li>(ii) \(a_{25}=5+24(4)=101\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> (i) 125; (ii) 101.</div>
+  </div>
+  <span class="src">Main paper (5) Q4(b) · Main paper (7) Q4(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">D4.</span> The 10th term of an arithmetic progression is \(-15\) and the 31st term is \(-57\). Find the 15th term.</div>
+  <div class="sol">
+    \[
+    a+9d=-15,\qquad a+30d=-57 .
+    \]
+    <p>Subtracting: \(21d=-42\Rightarrow d=-2\); then \(a=-15-9(-2)=3\).</p>
+    \[
+    a_{15}=3+14(-2)=3-28=-25 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(a_{15}=-25\).</div>
+  </div>
+  <span class="src">Special paper Q5(a) · Supplementary 2024 Q5(a) · Main paper (8) Q5(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D5.</span> The 5th and 12th terms of an arithmetic progression are 19 and 45 respectively. Find the first term and the common difference.</div>
+  <div class="sol">
+    \[
+    a+4d=19,\qquad a+11d=45 .
+    \]
+    <p>Subtracting: \(7d=26\Rightarrow d=\dfrac{26}{7}\); then \(a=19-4\!\left(\dfrac{26}{7}\right)=19-\dfrac{104}{7}=\dfrac{29}{7}\).</p>
+    <div class="ans"><strong>Answer:</strong> \(a=\dfrac{29}{7}\), \(d=\dfrac{26}{7}\).</div>
+  </div>
+  <span class="src">Main paper (8) Q3(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D6.</span> Find three consecutive terms in an arithmetic progression whose sum is 21, and the sum of their squares is 155.</div>
+  <div class="sol">
+    <p>Let the terms be \(a-d,\ a,\ a+d\).</p>
+    \[
+    (a-d)+a+(a+d)=3a=21\Rightarrow a=7 .
+    \]
+    \[
+    (7-d)^{2}+7^{2}+(7+d)^{2}=155
+    \]
+    \[
+    (49-14d+d^{2})+49+(49+14d+d^{2})=155
+    \]
+    \[
+    147+2d^{2}=155\Rightarrow d^{2}=4\Rightarrow d=\pm2 .
+    \]
+    <div class="ans"><strong>Answer:</strong> the terms are \(5,\ 7,\ 9\) (or \(9,\ 7,\ 5\)).</div>
+  </div>
+  <span class="src">Main paper (8) Q1(g)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">D7.</span> Find three geometric means between 2 and 32.</div>
+  <div class="sol">
+    <p>We need \(2,\ g_{1},\ g_{2},\ g_{3},\ 32\) to be a geometric progression with 5 terms:</p>
+    \[
+    32=2r^{4}\Rightarrow r^{4}=16\Rightarrow r=2 .
+    \]
+    \[
+    g_{1}=2\cdot2=4,\quad g_{2}=2\cdot2^{2}=8,\quad g_{3}=2\cdot2^{3}=16 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(4,\ 8,\ 16\).</div>
+  </div>
+  <span class="src">Special paper Q1(d) · Supplementary 2024 Q1(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">D8.</span> Insert five arithmetic means between 8 and 26.</div>
+  <div class="sol">
+    <p>We need 7 terms in AP with first 8 and last 26:</p>
+    \[
+    26=8+6d\Rightarrow d=3 .
+    \]
+    <div class="ans"><strong>Answer:</strong> the five means are \(11,\ 14,\ 17,\ 20,\ 23\).</div>
+  </div>
+  <span class="src">Main paper (7) Q1(f)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D9.</span> The 4th term of a geometric sequence is \(\dfrac{2}{3}\) and the 7th term is 1. Find the first term and the common ratio.</div>
+  <div class="sol">
+    <div class="note">The paper prints the 7th term as “\(\frac{81}{81}\)”, which equals 1. The likely intended value is \(\frac{16}{81}\) (the pair then has a neat ratio). Both are solved below.</div>
+    <p><strong>Using the printed value \(1\):</strong></p>
+    \[
+    ar^{3}=\tfrac{2}{3},\qquad ar^{6}=1\Rightarrow r^{3}=\frac{1}{2/3}=\frac{3}{2}\Rightarrow r=\sqrt[3]{\frac{3}{2}}\approx1.145 .
+    \]
+    \[
+    a=\frac{2/3}{r^{3}}=\frac{2}{3}\cdot\frac{2}{3}=\frac{4}{9}.
+    \]
+    <p><strong>Using the likely intended value \(\dfrac{16}{81}\):</strong></p>
+    \[
+    r^{3}=\frac{16/81}{2/3}=\frac{16}{81}\cdot\frac{3}{2}=\frac{8}{27}\Rightarrow r=\frac{2}{3},
+    \qquad a=\frac{2/3}{(2/3)^{3}}=\frac{9}{4}.
+    \]
+    <div class="ans"><strong>Answer:</strong> intended solution \(r=\dfrac{2}{3},\ a=\dfrac{9}{4}\). (With the printed 7th term \(=1\): \(a=\dfrac{4}{9},\ r=\sqrt[3]{\dfrac{3}{2}}\).)</div>
+  </div>
+  <span class="src">Special paper Q3(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D10.</span> Find the sum of the infinite geometric progression \(2,-4,8,-16,\ldots\)</div>
+  <div class="sol">
+    <p>Here \(a=2\) and \(r=\dfrac{-4}{2}=-2\). Since \(|r|=2>1\), the series <strong>diverges</strong>; the infinite sum does not exist.</p>
+    <div class="ans"><strong>Answer:</strong> no finite sum — the series diverges because \(|r|\ge1\).</div>
+  </div>
+  <span class="src">Main paper (5) Q2(d) · Main paper (8) Q2(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D11.</span> Find the sum of the infinite G.P. \(\dfrac{1}{3},-\dfrac{2}{9},\dfrac{4}{27},-\dfrac{8}{81},\ldots\)</div>
+  <div class="sol">
+    <p>\(a=\dfrac{1}{3}\), \(\;r=\dfrac{-2/9}{1/3}=-\dfrac{2}{3}\), and \(|r|<1\), so</p>
+    \[
+    S_{\infty}=\frac{a}{1-r}=\frac{1/3}{1+\frac{2}{3}}=\frac{1/3}{5/3}=\frac{1}{5}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(S_{\infty}=\dfrac{1}{5}\).</div>
+  </div>
+  <span class="src">Main paper (7) Q3(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D12.</span> Find the sum of the geometric progression \(\dfrac{1}{\sqrt{3}},\ 1,\ \sqrt{3},\ \ldots,\ 81\).</div>
+  <div class="sol">
+    <p>\(a=\dfrac{1}{\sqrt{3}}\), \(r=\sqrt{3}\). Find \(n\) from the last term:</p>
+    \[
+    81=\frac{1}{\sqrt{3}}\left(\sqrt{3}\right)^{n-1}\Rightarrow 81\sqrt{3}=3^{4}\cdot3^{1/2}=3^{9/2}=3^{(n-1)/2}
+    \]
+    \[
+    \frac{n-1}{2}=\frac{9}{2}\Rightarrow n=10 .
+    \]
+    \[
+    S_{10}=\frac{a\left(r^{10}-1\right)}{r-1}
+    =\frac{\frac{1}{\sqrt{3}}\left(3^{5}-1\right)}{\sqrt{3}-1}
+    =\frac{242}{\sqrt{3}(\sqrt{3}-1)}
+    =\frac{242(\sqrt{3}+1)}{2\sqrt{3}}
+    =\frac{121(3+\sqrt{3})}{3}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(S_{10}=\dfrac{121(3+\sqrt{3})}{3}\approx190.86\).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q3(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">D13.</span> Find the sum of all natural numbers between 1 and 1000 which are divisible by 3.</div>
+  <div class="sol">
+    <p>The numbers are \(3,6,9,\ldots,999\) — an AP with \(a=3\), \(d=3\), \(l=999\).</p>
+    \[
+    999=3+3(n-1)\Rightarrow n-1=332\Rightarrow n=333 .
+    \]
+    \[
+    S_{333}=\frac{333}{2}(3+999)=\frac{333}{2}(1002)=333\cdot501=166\,833 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(166\,833\).</div>
+  </div>
+  <span class="src">Main paper (6) Q2(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">D14.</span> In an arithmetic series, the sum of the first 14 terms is \(-203\) and the sum of the next 11 terms is \(-572\). Find the arithmetic series.</div>
+  <div class="sol">
+    <p>Sum of first 14: \(\;S_{14}=7(2a+13d)=-203\Rightarrow 2a+13d=-29\). … (1)</p>
+    <p>Sum of first 25 \(=-203-572=-775\):</p>
+    \[
+    S_{25}=\frac{25}{2}(2a+24d)=-775\Rightarrow 2a+24d=-62 . \tag{2}
+    \]
+    <p>(2) − (1): \(11d=-33\Rightarrow d=-3\). Then \(2a-39=-29\Rightarrow a=5\).</p>
+    <div class="ans"><strong>Answer:</strong> \(a=5,\ d=-3\). The series is \(5,\ 2,\ -1,\ -4,\ -7,\ldots\)</div>
+  </div>
+  <span class="src">Main paper (7) Q3(b)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART E : BINOMIAL                                                  -->
+<!-- ================================================================= -->
+<h2 class="part" id="partE">Part E — Binomial Theorem &amp; Approximations</h2>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">E1.</span> Find the 8th term in the expansion of \(\left(2x^{2}-\dfrac{1}{x^{2}}\right)^{12}\).</div>
+  <div class="sol">
+    <p>General term:</p>
+    \[
+    T_{r+1}=\binom{12}{r}\left(2x^{2}\right)^{12-r}\left(-\frac{1}{x^{2}}\right)^{r} .
+    \]
+    <p>The 8th term corresponds to \(r=7\):</p>
+    \[
+    T_{8}=\binom{12}{7}\left(2x^{2}\right)^{5}\left(-\frac{1}{x^{2}}\right)^{7}
+    =792\cdot32x^{10}\cdot\left(-x^{-14}\right)
+    =-25\,344\,x^{-4}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(T_{8}=-\dfrac{25\,344}{x^{4}}\).</div>
+  </div>
+  <span class="src">Special paper Q1(e) · Supplementary 2024 Q1(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">E2.</span> Expand \(\left(\dfrac{x^{2}}{2}-\dfrac{2}{x}\right)^{4}\) by the binomial theorem.</div>
+  <div class="sol">
+    \[
+    \left(\frac{x^{2}}{2}-\frac{2}{x}\right)^{4}
+    =\sum_{r=0}^{4}\binom{4}{r}\left(\frac{x^{2}}{2}\right)^{4-r}\left(-\frac{2}{x}\right)^{r}
+    \]
+    \[
+    =\frac{x^{8}}{16}-4\cdot\frac{x^{6}}{8}\cdot\frac{2}{x}+6\cdot\frac{x^{4}}{4}\cdot\frac{4}{x^{2}}-4\cdot\frac{x^{2}}{2}\cdot\frac{8}{x^{3}}+\frac{16}{x^{4}}
+    \]
+    \[
+    =\frac{x^{8}}{16}-x^{5}+6x^{2}-\frac{16}{x}+\frac{16}{x^{4}} .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(\dfrac{x^{8}}{16}-x^{5}+6x^{2}-\dfrac{16}{x}+\dfrac{16}{x^{4}}\).</div>
+  </div>
+  <span class="src">Special paper Q4(b) · Main paper (7) Q1(g)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">E3.</span> Expand \(\left(a-\dfrac{1}{a}\right)^{6}\) using the binomial theorem.</div>
+  <div class="sol">
+    \[
+    \left(a-\frac{1}{a}\right)^{6}
+    =a^{6}-6a^{4}+15a^{2}-20+\frac{15}{a^{2}}-\frac{6}{a^{4}}+\frac{1}{a^{6}} .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(a^{6}-6a^{4}+15a^{2}-20+\dfrac{15}{a^{2}}-\dfrac{6}{a^{4}}+\dfrac{1}{a^{6}}\).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q4(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">E4.</span> Expand \(\left(\dfrac{x^{2}}{2}-\dfrac{2}{x}\right)^{4}\) … and also use the binomial series to determine the expansion of \((2+x)^{5}\).</div>
+  <div class="sol">
+    <p>The first part is identical to E2. For \((2+x)^{5}\):</p>
+    \[
+    (2+x)^{5}=32+5(16)x+10(8)x^{2}+10(4)x^{3}+5(2)x^{4}+x^{5}
+    \]
+    \[
+    =32+80x+80x^{2}+40x^{3}+10x^{4}+x^{5}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(32+80x+80x^{2}+40x^{3}+10x^{4}+x^{5}\).</div>
+  </div>
+  <span class="src">Main paper (8) Q1(i)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">E5.</span> Find the 8th term in the expansion \(\left(x-\dfrac{2}{x}\right)^{12}\).</div>
+  <div class="sol">
+    <p>General term:</p>
+    \[
+    T_{r+1}=\binom{12}{r}x^{12-r}\left(-\frac{2}{x}\right)^{r}=\binom{12}{r}(-2)^{r}x^{12-2r} .
+    \]
+    <p>For the 8th term, \(r=7\):</p>
+    \[
+    T_{8}=\binom{12}{7}(-2)^{7}x^{12-14}=792\cdot(-128)x^{-2}=-101\,376x^{-2}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(T_{8}=-\dfrac{101\,376}{x^{2}}\).</div>
+  </div>
+  <span class="src">Main paper (5) Q4(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">E6.</span> Find the 9th term in the expansion of \(\left(2x+\dfrac{1}{x}\right)^{12}\).</div>
+  <div class="sol">
+    <p>For the 9th term, \(r=8\):</p>
+    \[
+    T_{9}=\binom{12}{8}(2x)^{4}\left(\frac{1}{x}\right)^{8}=495\cdot16x^{4}\cdot x^{-8}=7\,920x^{-4}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(T_{9}=\dfrac{7\,920}{x^{4}}\).</div>
+  </div>
+  <span class="src">Main paper (6) Q3(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">E7.</span> Find the 5th term in the expansion of \(\left(2x-\dfrac{1}{x}\right)^{8}\).</div>
+  <div class="sol">
+    <p>For the 5th term, \(r=4\):</p>
+    \[
+    T_{5}=\binom{8}{4}(2x)^{4}\left(-\frac{1}{x}\right)^{4}=70\cdot16x^{4}\cdot x^{-4}=1\,120 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(T_{5}=1\,120\) (a constant term).</div>
+  </div>
+  <span class="src">Main paper (8) Q4(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">E8.</span> Find the coefficient of \(x^{19}\) in \((2x^{2}-3x)^{9}\).</div>
+  <div class="sol">
+    <p>General term:</p>
+    \[
+    T_{r+1}=\binom{9}{r}(2x^{2})^{9-r}(-3x)^{r}=\binom{9}{r}2^{9-r}(-3)^{r}x^{18-r}.
+    \]
+    <p>Powers of \(x\) range from \(x^{9}\) (when \(r=9\)) to \(x^{18}\) (when \(r=0\)). The term \(x^{19}\) would require \(r=-1\), which is impossible.</p>
+    <div class="ans"><strong>Answer:</strong> the coefficient of \(x^{19}\) is \(\mathbf{0}\) — that power does not occur. (If the paper intended \(x^{13}\), the coefficient is \(\binom{9}{5}2^{4}(-3)^{5}=-489\,888\).)</div>
+  </div>
+  <span class="src">Special paper Q5(b) · Supplementary 2024 Q5(b) · Main paper (8) Q5(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">E9.</span> Determine \(4.0365^{7}\) using the binomial theorem, correct to 6 significant figures.</div>
+  <div class="sol">
+    \[
+    4.0365^{7}=4^{7}\left(1+\frac{0.0365}{4}\right)^{7}=16\,384\,(1.009125)^{7}.
+    \]
+    <p>With \(x=0.009125\):</p>
+    \[
+    (1+x)^{7}=1+7x+21x^{2}+35x^{3}+35x^{4}+\cdots
+    \]
+    \[
+    =1+0.063875+0.0017487+0.0000266+0.0000002=1.0656505 .
+    \]
+    \[
+    4.0365^{7}\approx16\,384\times1.0656505=17\,459.63 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(4.0365^{7}\approx17\,459.6\) (6 s.f.).</div>
+  </div>
+  <span class="src">Main paper (5) Q3(e) · Main paper (8) Q2(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">E10.</span> Determine the value of \((3.039)^{4}\) correct to 6 significant figures using the binomial theorem.</div>
+  <div class="sol">
+    \[
+    3.039^{4}=3^{4}\left(1+\frac{0.039}{3}\right)^{4}=81\,(1.013)^{4}.
+    \]
+    \[
+    (1.013)^{4}=1+4(0.013)+6(0.013)^{2}+4(0.013)^{3}+(0.013)^{4}
+    \]
+    \[
+    =1+0.052+0.001014+0.00000879+0.00000003=1.05302282 .
+    \]
+    \[
+    81\times1.05302282=85.294848 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \((3.039)^{4}\approx85.2948\) (6 s.f.).</div>
+  </div>
+  <span class="src">Main paper (7) Q3(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">E11.</span> Expand \((1+2x)^{20}\) up to the term in \(x^{5}\) and hence evaluate \((1.08)^{20}\).</div>
+  <div class="sol">
+    \[
+    (1+2x)^{20}=1+20(2x)+\binom{20}{2}(2x)^{2}+\binom{20}{3}(2x)^{3}+\binom{20}{4}(2x)^{4}+\binom{20}{5}(2x)^{5}+\cdots
+    \]
+    \[
+    =1+40x+760x^{2}+9\,120x^{3}+77\,520x^{4}+496\,128x^{5}+\cdots
+    \]
+    <p>Put \(2x=0.08\), i.e. \(x=0.04\):</p>
+    \[
+    \begin{aligned}
+    (1.08)^{20}&\approx1+40(0.04)+760(0.04)^{2}+9\,120(0.04)^{3}\\
+    &\qquad+77\,520(0.04)^{4}+496\,128(0.04)^{5}\\
+    &=1+1.6+1.216+0.583\,68+0.198\,45+0.050\,80\\
+    &\approx4.648\,9 .
+    \end{aligned}
+    \]
+    <div class="ans"><strong>Answer:</strong> \((1.08)^{20}\approx4.6489\) from the truncated series (true value \(4.6610\); the small difference is the truncated tail).</div>
+  </div>
+  <span class="src">Main paper (6) Q5(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">7 marks</span>
+  <div class="question"><span class="qnum">E12.</span> Obtain the first four terms of the expansion of \(\left(1+\dfrac{1}{2}x\right)^{10}\) in ascending powers of \(x\). Hence find the value of \((1.005)^{10}\).</div>
+  <div class="sol">
+    \[
+    \left(1+\tfrac{x}{2}\right)^{10}
+    =1+10\left(\tfrac{x}{2}\right)+\binom{10}{2}\left(\tfrac{x}{2}\right)^{2}+\binom{10}{3}\left(\tfrac{x}{2}\right)^{3}+\cdots
+    =1+5x+\frac{45}{4}x^{2}+15x^{3}+\cdots
+    \]
+    <p>For \((1.005)^{10}\) set \(\tfrac{x}{2}=0.005\Rightarrow x=0.01\):</p>
+    \[
+    (1.005)^{10}\approx1+5(0.01)+\frac{45}{4}(0.0001)+15(0.000001)
+    =1+0.05+0.001\,125+0.000\,015=1.051\,14 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(1+5x+\dfrac{45}{4}x^{2}+15x^{3}\) and \((1.005)^{10}\approx1.051\,14\).</div>
+  </div>
+  <span class="src">Part‑time paper Q5(i)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">E13.</span> Obtain the expansion of \((1+x-2x^{2})^{8}\) as far as the term in \(x^{3}\).</div>
+  <div class="sol">
+    <p>Let \(u=x-2x^{2}\). Then \((1+u)^{8}=1+8u+28u^{2}+56u^{3}+\cdots\) and</p>
+    \[
+    u^{2}=x^{2}-4x^{3}+\cdots,\qquad u^{3}=x^{3}+\cdots
+    \]
+    \[
+    \begin{aligned}
+    (1+x-2x^{2})^{8}
+    &=1+8(x-2x^{2})+28(x^{2}-4x^{3})+56x^{3}+\cdots\\
+    &=1+8x-16x^{2}+28x^{2}-112x^{3}+56x^{3}+\cdots\\
+    &=1+8x+12x^{2}-56x^{3}+\cdots
+    \end{aligned}
+    \]
+    <div class="ans"><strong>Answer:</strong> \(1+8x+12x^{2}-56x^{3}+\cdots\)</div>
+  </div>
+  <span class="src">Part‑time paper Q5(ii)</span>
+</div>
+
+<div class="q">
+  <span class="marks">8 marks</span>
+  <div class="question"><span class="qnum">E14.</span> Expand \(\dfrac{1}{(2+x)^{2}}\) in ascending powers of \(x\) as far as the term \(x^{3}\), and state the values of \(x\) for which the expansion is valid.</div>
+  <div class="sol">
+    \[
+    \frac{1}{(2+x)^{2}}=\frac{1}{4}\left(1+\frac{x}{2}\right)^{-2}.
+    \]
+    <p>Using \((1+t)^{-2}=1-2t+3t^{2}-4t^{3}+\cdots\) with \(t=\dfrac{x}{2}\):</p>
+    \[
+    \frac{1}{(2+x)^{2}}
+    =\frac{1}{4}\left[1-2\left(\frac{x}{2}\right)+3\left(\frac{x}{2}\right)^{2}-4\left(\frac{x}{2}\right)^{3}+\cdots\right]
+    =\frac{1}{4}-\frac{x}{4}+\frac{3x^{2}}{16}-\frac{x^{3}}{8}+\cdots
+    \]
+    <p>Valid when \(\left|\dfrac{x}{2}\right|<1\), i.e. \(-2<x<2\).</p>
+    <div class="ans"><strong>Answer:</strong> \(\dfrac14-\dfrac{x}{4}+\dfrac{3x^{2}}{16}-\dfrac{x^{3}}{8}+\cdots\), valid for \(|x|<2\).</div>
+  </div>
+  <span class="src">Part‑time paper Q5(iii)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART F : TRIGONOMETRY                                              -->
+<!-- ================================================================= -->
+<h2 class="part" id="partF">Part F — Trigonometry: Identities &amp; Equations</h2>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">F1.</span> If \(\sin\alpha=0.6\) and \(\cos\beta=0.8\), find \(\sin(\alpha+\beta)\) using trigonometric identities.</div>
+  <div class="sol">
+    <p>Taking the acute‑angle values (the standard assumption in this question):</p>
+    \[
+    \cos\alpha=\sqrt{1-0.6^{2}}=0.8,\qquad \sin\beta=\sqrt{1-0.8^{2}}=0.6 .
+    \]
+    \[
+    \sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta=(0.6)(0.8)+(0.8)(0.6)=0.96 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(\sin(\alpha+\beta)=0.96\). (Without the acute‑angle assumption, the value depends on the quadrant of each angle.)</div>
+  </div>
+  <span class="src">Special paper Q1(f)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">F2.</span> Express \(\cos 60^{\circ}+\cos 30^{\circ}\) as a product.</div>
+  <div class="sol">
+    <p>Using \(\cos A+\cos B=2\cos\dfrac{A+B}{2}\cos\dfrac{A-B}{2}\):</p>
+    \[
+    \cos 60^{\circ}+\cos 30^{\circ}=2\cos45^{\circ}\cos15^{\circ}=\sqrt2\cos15^{\circ}
+    =\frac{\sqrt3+1}{2}\approx1.366 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(\sqrt2\cos15^{\circ}=\dfrac{\sqrt3+1}{2}\).</div>
+  </div>
+  <span class="src">Main paper (8) Q1(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">F3.</span> Simplify \(\dfrac{\cot(-\theta)}{\csc(-\theta)}\).</div>
+  <div class="sol">
+    <p>Using the odd properties \(\cot(-\theta)=-\cot\theta\) and \(\csc(-\theta)=-\csc\theta\):</p>
+    \[
+    \frac{\cot(-\theta)}{\csc(-\theta)}=\frac{-\cot\theta}{-\csc\theta}
+    =\frac{\cos\theta/\sin\theta}{1/\sin\theta}=\cos\theta .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(\cos\theta\).</div>
+  </div>
+  <span class="src">Special paper Q4(d)(i) · Supplementary 2024 Q4(d)(i) · Part‑time paper Q1(e)(ii)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">F4.</span> Simplify \(\cos\theta(\tan\theta-\sec\theta)\).</div>
+  <div class="sol">
+    \[
+    \cos\theta\left(\frac{\sin\theta}{\cos\theta}-\frac{1}{\cos\theta}\right)=\sin\theta-1 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(\sin\theta-1\).</div>
+  </div>
+  <span class="src">Main paper (7) Q1(i) · Part‑time paper Q1(e)(i)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">F5.</span> Simplify \(\dfrac{2\sin^{2}\theta+\sin\theta-3}{1-\cos^{2}\theta-\sin\theta}\).</div>
+  <div class="sol">
+    <p>Factor numerator: \(2s^{2}+s-3=(2s+3)(s-1)\).</p>
+    <p>Simplify denominator using \(1-\cos^{2}\theta=\sin^{2}\theta\):</p>
+    \[
+    1-\cos^{2}\theta-\sin\theta=\sin^{2}\theta-\sin\theta=\sin\theta(\sin\theta-1).
+    \]
+    \[
+    \frac{(2\sin\theta+3)(\sin\theta-1)}{\sin\theta(\sin\theta-1)}=\frac{2\sin\theta+3}{\sin\theta}.
+    \]
+    <div class="ans"><strong>Answer:</strong> \(\dfrac{2\sin\theta+3}{\sin\theta}\) (provided \(\sin\theta\neq0,1\)).</div>
+  </div>
+  <span class="src">Special paper Q4(d)(ii) · Supplementary 2024 Q4(d)(ii) · Part‑time paper Q1(e)(iii)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">F6.</span> Prove the identity \(1+\sin 2\theta=(\sin\theta+\cos\theta)^{2}\).</div>
+  <div class="sol">
+    \[
+    \begin{aligned}
+    (\sin\theta+\cos\theta)^{2}
+    &=\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta\\
+    &=(\sin^{2}\theta+\cos^{2}\theta)+2\sin\theta\cos\theta\\
+    &=1+\sin2\theta . \qquad\blacksquare
+    \end{aligned}
+    \]
+  </div>
+  <span class="src">Special paper Q2(d) · Supplementary 2024 Q2(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">F7.</span> Prove that \(\cot 2x+\csc 2x=\cot x\).</div>
+  <div class="sol">
+    \[
+    \begin{aligned}
+    \cot2x+\csc2x
+    &=\frac{\cos2x}{\sin2x}+\frac{1}{\sin2x}
+     =\frac{1+\cos2x}{\sin2x}\\
+    &=\frac{2\cos^{2}x}{2\sin x\cos x}
+     =\frac{\cos x}{\sin x}=\cot x . \qquad\blacksquare
+    \end{aligned}
+    \]
+  </div>
+  <span class="src">Main paper (6) Q2(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">F8.</span> Prove that \(\sin3\theta=3\sin\theta-4\sin^{3}\theta\).</div>
+  <div class="sol">
+    \[
+    \begin{aligned}
+    \sin3\theta&=\sin(2\theta+\theta)\\
+    &=\sin2\theta\cos\theta+\cos2\theta\sin\theta\\
+    &=(2\sin\theta\cos\theta)\cos\theta+(1-2\sin^{2}\theta)\sin\theta\\
+    &=2\sin\theta\cos^{2}\theta+\sin\theta-2\sin^{3}\theta\\
+    &=2\sin\theta(1-\sin^{2}\theta)+\sin\theta-2\sin^{3}\theta\\
+    &=3\sin\theta-4\sin^{3}\theta . \qquad\blacksquare
+    \end{aligned}
+    \]
+  </div>
+  <span class="src">Main paper (5) Q4(d) · Main paper (8) Q4(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">8 marks</span>
+  <div class="question"><span class="qnum">F9.</span> Prove the identity \(\dfrac{1}{(\csc\theta-\sin\theta)(\sec\theta-\cos\theta)}=\tan\theta+\cot\theta\).</div>
+  <div class="sol">
+    \[
+    \csc\theta-\sin\theta=\frac{1-\sin^{2}\theta}{\sin\theta}=\frac{\cos^{2}\theta}{\sin\theta},
+    \qquad
+    \sec\theta-\cos\theta=\frac{1-\cos^{2}\theta}{\cos\theta}=\frac{\sin^{2}\theta}{\cos\theta}.
+    \]
+    <p>Their product is \(\dfrac{\cos^{2}\theta}{\sin\theta}\cdot\dfrac{\sin^{2}\theta}{\cos\theta}=\sin\theta\cos\theta\). Hence</p>
+    \[
+    \frac{1}{(\csc\theta-\sin\theta)(\sec\theta-\cos\theta)}
+    =\frac{1}{\sin\theta\cos\theta}
+    =\frac{\sin^{2}\theta+\cos^{2}\theta}{\sin\theta\cos\theta}
+    =\tan\theta+\cot\theta . \qquad\blacksquare
+    \]
+  </div>
+  <span class="src">Part‑time paper Q3(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">F10.</span> Show that \(\sec^{2}\theta\csc^{2}\theta=\sec^{2}\theta+\csc^{2}\theta\).</div>
+  <div class="sol">
+    \[
+    \sec^{2}\theta+\csc^{2}\theta
+    =\frac{1}{\cos^{2}\theta}+\frac{1}{\sin^{2}\theta}
+    =\frac{\sin^{2}\theta+\cos^{2}\theta}{\sin^{2}\theta\cos^{2}\theta}
+    =\frac{1}{\sin^{2}\theta\cos^{2}\theta}
+    =\sec^{2}\theta\csc^{2}\theta . \ \blacksquare
+    \]
+  </div>
+  <span class="src">Main paper (6) Q5(c) · Main paper (8) Q5(d)(ii)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">F11.</span> Verify that \(2\csc x=\dfrac{1+\cos x}{\sin x}+\dfrac{\sin x}{1+\cos x}\).</div>
+  <div class="sol">
+    \[
+    \begin{aligned}
+    \frac{1+\cos x}{\sin x}+\frac{\sin x}{1+\cos x}
+    &=\frac{(1+\cos x)^{2}+\sin^{2}x}{\sin x(1+\cos x)}\\
+    &=\frac{1+2\cos x+\cos^{2}x+\sin^{2}x}{\sin x(1+\cos x)}
+     =\frac{2+2\cos x}{\sin x(1+\cos x)}\\
+    &=\frac{2(1+\cos x)}{\sin x(1+\cos x)}=\frac{2}{\sin x}=2\csc x . \ \blacksquare
+    \end{aligned}
+    \]
+  </div>
+  <span class="src">Main paper (6) Q4(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">F12.</span> Verify that \(\dfrac{\sin2x}{\sin x}-\dfrac{\cos2x}{\cos x}=\sec x\).</div>
+  <div class="sol">
+    \[
+    \frac{\sin2x}{\sin x}=2\cos x,\qquad
+    \frac{\cos2x}{\cos x}=\frac{2\cos^{2}x-1}{\cos x}=2\cos x-\sec x .
+    \]
+    \[
+    2\cos x-(2\cos x-\sec x)=\sec x . \ \blacksquare
+    \]
+  </div>
+  <span class="src">Main paper (8) Q5(d)(i)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">F13.</span> Solve the equation \(12\cos^{2}\theta+\sin\theta=11\) on the domain \(0^{\circ}\le\theta\le360^{\circ}\).</div>
+  <div class="sol">
+    <p>Use \(\cos^{2}\theta=1-\sin^{2}\theta\):</p>
+    \[
+    12(1-\sin^{2}\theta)+\sin\theta=11
+    \]
+    \[
+    12\sin^{2}\theta-\sin\theta-1=0
+    \]
+    \[
+    (4\sin\theta+1)(3\sin\theta-1)=0
+    \]
+    \[
+    \sin\theta=-\frac14 \quad\text{or}\quad \sin\theta=\frac13 .
+    \]
+    <ul class="tight">
+      <li>\(\sin\theta=\frac13\): \(\theta\approx19.47^{\circ}\) or \(160.53^{\circ}\)</li>
+      <li>\(\sin\theta=-\frac14\): \(\theta\approx194.48^{\circ}\) or \(345.52^{\circ}\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> \(\theta\approx19.5^{\circ},\,160.5^{\circ},\,194.5^{\circ},\,345.5^{\circ}\).</div>
+  </div>
+  <span class="src">Special paper Q3(d) · Supplementary 2024 Q3(d) · Part‑time paper Q3(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">F14.</span> Solve the equation \(\sin2\theta=\cos\theta\).</div>
+  <div class="sol">
+    \[
+    2\sin\theta\cos\theta=\cos\theta \Rightarrow \cos\theta(2\sin\theta-1)=0 .
+    \]
+    <ul class="tight">
+      <li>\(\cos\theta=0\Rightarrow\theta=90^{\circ},\,270^{\circ}\)</li>
+      <li>\(\sin\theta=\frac12\Rightarrow\theta=30^{\circ},\,150^{\circ}\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> \(\theta=30^{\circ},\,90^{\circ},\,150^{\circ},\,270^{\circ}\).</div>
+  </div>
+  <span class="src">Main paper (5) Q1(c) · Main paper (8) Q2(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">F15.</span> Solve the equation \(\sin2\theta=\sin\theta\).</div>
+  <div class="sol">
+    \[
+    2\sin\theta\cos\theta=\sin\theta \Rightarrow \sin\theta(2\cos\theta-1)=0 .
+    \]
+    <ul class="tight">
+      <li>\(\sin\theta=0\Rightarrow\theta=0^{\circ},\,180^{\circ},\,360^{\circ}\)</li>
+      <li>\(\cos\theta=\frac12\Rightarrow\theta=60^{\circ},\,300^{\circ}\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> \(\theta=0^{\circ},\,60^{\circ},\,180^{\circ},\,300^{\circ},\,360^{\circ}\).</div>
+  </div>
+  <span class="src">Main paper (7) Q2(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">F16.</span> Find the general solution of \(12\sec^{2}\theta-13\tan\theta-9=0\) on the domain \(0^{\circ}<\theta<360^{\circ}\).</div>
+  <div class="sol">
+    <p>Use \(\sec^{2}\theta=1+\tan^{2}\theta\):</p>
+    \[
+    12(1+\tan^{2}\theta)-13\tan\theta-9=0
+    \]
+    \[
+    12\tan^{2}\theta-13\tan\theta+3=0
+    \]
+    \[
+    (3\tan\theta-1)(4\tan\theta-3)=0
+    \]
+    \[
+    \tan\theta=\frac13 \quad\text{or}\quad \tan\theta=\frac34 .
+    \]
+    <ul class="tight">
+      <li>\(\tan\theta=\frac13\): \(\theta\approx18.43^{\circ}\) or \(198.43^{\circ}\)</li>
+      <li>\(\tan\theta=\frac34\): \(\theta\approx36.87^{\circ}\) or \(216.87^{\circ}\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> \(\theta\approx18.4^{\circ},\,36.9^{\circ},\,198.4^{\circ},\,216.9^{\circ}\).</div>
+  </div>
+  <span class="src">Part‑time paper Q3(c)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART G : LOGIC                                                     -->
+<!-- ================================================================= -->
+<h2 class="part" id="partG">Part G — Logic, Propositions &amp; Truth Tables</h2>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">G1.</span> Suppose \(p\) and \(q\) are true statements while \(r\) is a false statement. Determine the truth value of:
+    (i) \(\neg q\lor r\) &nbsp;(ii) \(\neg(r\land q)\) &nbsp;(iii) \(\neg\big[(p\land\neg r)\lor q\big]\).</div>
+  <div class="sol">
+    <p>Given \(p=T,\ q=T,\ r=F\):</p>
+    <ul class="tight">
+      <li>(i) \(\neg q\lor r=F\lor F=\mathbf{False}\)</li>
+      <li>(ii) \(\neg(r\land q)=\neg(F\land T)=\neg F=\mathbf{True}\)</li>
+      <li>(iii) \(\neg[(T\land T)\lor T]=\neg(T\lor T)=\neg T=\mathbf{False}\)</li>
+    </ul>
+    <div class="ans"><strong>Answer:</strong> (i) False, (ii) True, (iii) False.</div>
+  </div>
+  <span class="src">Special paper Q1(h) · Supplementary 2024 Q1(h)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">G2.</span> Let \(p\): Felix laughs, \(q\): Jacinta cries, \(r\): John shouts. Write the following compound propositions in words:
+    (i) \(p\rightarrow(q\lor r)\) &nbsp;(ii) \((r\land q)\leftrightarrow\neg p\) &nbsp;(iii) \((p\rightarrow r)\lor q\).</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) <em>If Felix laughs, then Jacinta cries or John shouts.</em></li>
+      <li>(ii) <em>John shouts and Jacinta cries if and only if Felix does not laugh.</em></li>
+      <li>(iii) <em>If Felix laughs then John shouts, or Jacinta cries.</em></li>
+    </ul>
+  </div>
+  <span class="src">Special paper Q5(c) · Main paper (6) Q1(d) · Main paper (7) Q5(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">G3.</span> Let \(p\) = “is a teacher”, \(q\) = “is rich”, \(r\) = “is a pop singer”. Write in plain English:
+    (i) \(r\rightarrow q\) &nbsp;(ii) \(p\leftrightarrow\neg r\).</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) <em>If he/she is a pop singer, then he/she is rich.</em></li>
+      <li>(ii) <em>He/she is a teacher if and only if he/she is not a pop singer.</em></li>
+    </ul>
+  </div>
+  <span class="src">Supplementary 2024 Q5(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">G4.</span> Let \(p\): “It is raining”, \(q\): “It is cold”, \(r\): “I will stay indoors”. Write in words:
+    (i) \((p\land q)\rightarrow r\) &nbsp;(ii) \(\neg p\land\neg r\).</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) <em>If it is raining and it is cold, then I will stay indoors.</em></li>
+      <li>(ii) <em>It is not raining and I will not stay indoors.</em></li>
+    </ul>
+  </div>
+  <span class="src">Main paper (8) Q4(a)</span>
+</div>
+
+<div class="q">
+  <span class="marks">10 marks</span>
+  <div class="question"><span class="qnum">G5.</span> Let \(P\) be the proposition “Today is Monday” and \(Q\) be “I will go to London”. Write the following propositions symbolically:
+    (i) If today is Monday then I won’t go to London.
+    (ii) Today is Monday or I will go to London but not both.
+    (iii) I will go to London and today is not Monday.
+    (iv) If and only if today is not Monday then I will go to London.</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) \(P\rightarrow\neg Q\)</li>
+      <li>(ii) \((P\lor Q)\land\neg(P\land Q)\) &nbsp;(exclusive or)</li>
+      <li>(iii) \(Q\land\neg P\)</li>
+      <li>(iv) \(\neg P\leftrightarrow Q\)</li>
+    </ul>
+  </div>
+  <span class="src">Part‑time paper Q4(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">G6.</span> Let \(p,q,r\) be propositions. Construct the truth table for \(p\land q\lor r\).</div>
+  <div class="sol">
+    <p>With the usual precedence \((\land\text{ before }\lor)\), i.e. \((p\land q)\lor r\):</p>
+    <table>
+      <tr><th>\(p\)</th><th>\(q\)</th><th>\(r\)</th><th>\(p\land q\)</th><th>\((p\land q)\lor r\)</th></tr>
+      <tr><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td></tr>
+      <tr><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td></tr>
+      <tr><td>T</td><td>F</td><td>T</td><td>F</td><td>T</td></tr>
+      <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+      <tr><td>F</td><td>T</td><td>T</td><td>F</td><td>T</td></tr>
+      <tr><td>F</td><td>T</td><td>F</td><td>F</td><td>F</td></tr>
+      <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>T</td></tr>
+      <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+    </table>
+  </div>
+  <span class="src">Main paper (7) Q1(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">G7.</span> Construct the truth table of \(p\lor(\neg q\leftrightarrow p)\).</div>
+  <div class="sol">
+    <table>
+      <tr><th>\(p\)</th><th>\(q\)</th><th>\(\neg q\)</th><th>\(\neg q\leftrightarrow p\)</th><th>\(p\lor(\neg q\leftrightarrow p)\)</th></tr>
+      <tr><td>T</td><td>T</td><td>F</td><td>F</td><td>T</td></tr>
+      <tr><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td></tr>
+      <tr><td>F</td><td>T</td><td>F</td><td>T</td><td>T</td></tr>
+      <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td></tr>
+    </table>
+    <div class="ans">The formula is false only when \(p=F\) and \(q=F\).</div>
+  </div>
+  <span class="src">Main paper (8) Q4(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">G8.</span> Find the truth table for the expression \((p\land\neg q)\rightarrow(p\lor q)\).</div>
+  <div class="sol">
+    <table>
+      <tr><th>\(p\)</th><th>\(q\)</th><th>\(p\land\neg q\)</th><th>\(p\lor q\)</th><th>\((p\land\neg q)\rightarrow(p\lor q)\)</th></tr>
+      <tr><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td></tr>
+      <tr><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td></tr>
+      <tr><td>F</td><td>T</td><td>F</td><td>T</td><td>T</td></tr>
+      <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>T</td></tr>
+    </table>
+    <div class="ans">It is a tautology (always true).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q5(d)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART H : COMPLEX NUMBERS                                           -->
+<!-- ================================================================= -->
+<h2 class="part" id="partH">Part H — Complex Numbers</h2>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">H1.</span> Express the complex number \(z=\dfrac{7-i}{3-5i}\) in the form \(x+iy\).</div>
+  <div class="sol">
+    <p>Multiply numerator and denominator by the conjugate \(3+5i\):</p>
+    \[
+    z=\frac{(7-i)(3+5i)}{(3-5i)(3+5i)}=\frac{21+35i-3i-5i^{2}}{9+25}
+    =\frac{26+32i}{34}=\frac{13}{17}+\frac{16}{17}i .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(z=\dfrac{13}{17}+\dfrac{16}{17}i\).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q1(f)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">H2.</span> Express \(\dfrac{5+2i}{2-5i}\) in the form \(a+bi\).</div>
+  <div class="sol">
+    \[
+    \frac{5+2i}{2-5i}=\frac{(5+2i)(2+5i)}{(2-5i)(2+5i)}
+    =\frac{10+25i+4i+10i^{2}}{4+25}
+    =\frac{29i}{29}=i .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(0+1i\) (i.e. simply \(i\)).</div>
+  </div>
+  <span class="src">Main paper (6) Q4(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">H3.</span> Express \(\dfrac{1}{9+2i}\) in the form \(x+iy\).</div>
+  <div class="sol">
+    \[
+    \frac{1}{9+2i}=\frac{9-2i}{(9+2i)(9-2i)}=\frac{9-2i}{81+4}=\frac{9}{85}-\frac{2}{85}i .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(x=\dfrac{9}{85},\ y=-\dfrac{2}{85}\).</div>
+  </div>
+  <span class="src">Main paper (7) Q3(e)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">H4.</span> Simplify \((1+i)^{2}\).</div>
+  <div class="sol">
+    \[
+    (1+i)^{2}=1+2i+i^{2}=1+2i-1=2i .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(2i\).</div>
+  </div>
+  <span class="src">Main paper (7) Q1(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">H5.</span> The complex numbers are \(z_{1}=1+i\), \(z_{2}=2+\sqrt{3}\,i\). Find (i) \(z_{1}+z_{2}\) (ii) \(z_{1}-z_{2}\) (iii) \(z_{1}z_{2}\) (iv) \(\dfrac{z_{1}}{z_{2}}\).</div>
+  <div class="sol">
+    <ul class="tight">
+      <li>(i) \(z_{1}+z_{2}=3+(1+\sqrt3)i\)</li>
+      <li>(ii) \(z_{1}-z_{2}=-1+(1-\sqrt3)i\)</li>
+      <li>(iii) \(z_{1}z_{2}=(1+i)(2+\sqrt3 i)=2+\sqrt3 i+2i+\sqrt3 i^{2}=(2-\sqrt3)+(2+\sqrt3)i\)</li>
+      <li>(iv)
+      \[
+      \frac{z_{1}}{z_{2}}=\frac{(1+i)(2-\sqrt3 i)}{4+3}
+      =\frac{2-\sqrt3 i+2i-\sqrt3 i^{2}}{7}
+      =\frac{(2+\sqrt3)+(2-\sqrt3)i}{7}
+      \]</li>
+    </ul>
+    <div class="ans">All four results are given above; the modulus of the denominator is \(|z_{2}|^{2}=4+3=7\).</div>
+  </div>
+  <span class="src">Part‑time paper Q1(d)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART I : INEQUALITIES                                              -->
+<!-- ================================================================= -->
+<h2 class="part" id="partI">Part I — Inequalities &amp; Absolute Value</h2>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">I1.</span> Solve \(|3x-4|=|7x-16|\).</div>
+  <div class="sol">
+    <p>\(|A|=|B|\) means \(A=B\) or \(A=-B\).</p>
+    <p><strong>Case 1:</strong> \(3x-4=7x-16\Rightarrow12=4x\Rightarrow x=3\).</p>
+    <p><strong>Case 2:</strong> \(3x-4=-(7x-16)\Rightarrow3x-4=-7x+16\Rightarrow10x=20\Rightarrow x=2\).</p>
+    <p><em>Check:</em> \(x=3\): \(|5|=|5|\) ✓; \(x=2\): \(|2|=|-2|\) ✓.</p>
+    <div class="ans"><strong>Answer:</strong> \(x=2\) or \(x=3\).</div>
+  </div>
+  <span class="src">Special paper Q1(i) · Supplementary 2024 Q1(i)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">I2.</span> Solve for \(x\): \(6x+2\ge5x-18\).</div>
+  <div class="sol">
+    \[
+    6x-5x\ge-18-2\Rightarrow x\ge-20 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(x\ge-20\), i.e. \(x\in[-20,\infty)\).</div>
+  </div>
+  <span class="src">Special paper Q2(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">2 marks</span>
+  <div class="question"><span class="qnum">I3.</span> Solve for \(x\): \(3x+2\ge5x-10\).</div>
+  <div class="sol">
+    \[
+    3x-5x\ge-10-2\Rightarrow-2x\ge-12\Rightarrow x\le6 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(x\le6\), i.e. \(x\in(-\infty,6]\).</div>
+  </div>
+  <span class="src">Supplementary 2024 Q2(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">I4.</span> Solve \(x^{2}-10<3x\).</div>
+  <div class="sol">
+    \[
+    x^{2}-3x-10<0\Rightarrow (x-5)(x+2)<0 .
+    \]
+    <p>The parabola opens upwards with roots at \(x=-2\) and \(x=5\), so it is negative strictly between the roots.</p>
+    <div class="ans"><strong>Answer:</strong> \(-2<x<5\), i.e. \(x\in(-2,5)\).</div>
+  </div>
+  <span class="src">Special paper Q5(d) · Main paper (7) Q3(c) · Main paper (8) Q1(b)</span>
+</div>
+
+<!-- ================================================================= -->
+<!-- PART J : ILLEGIBLE                                                 -->
+<!-- ================================================================= -->
+<h2 class="part" id="partJ">Part J — Illegible / Incomplete Items</h2>
+
+<div class="note">
+  The following items appear in the source papers but are too corrupted to state precisely. Each is listed with the most probable reconstruction and a worked answer for that reconstruction. If your lecturer confirms a different reading, substitute the values into the same method shown in the corresponding section above.
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">J1.</span> [Main paper (6) Q2(c)] Solve for \(n\): “\(4nC = 2n+2C_{3}\)”.</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> The printed expression is garbled. A plausible reconstruction is \(\;{}^{n+2}C_{2}\times{}^{n}C_{3}=210\), solved in C12 (answer \(n=5\)). If instead the intended equation is \({}^{4n}C_{2}={}^{2n+2}C_{3}\), then solving gives \(2n^{2}-9n+4=0\Rightarrow n=4\) (check: \({}^{16}C_{2}=120={}^{10}C_{3}\)).</div>
+    <div class="ans"><strong>Answer (most likely):</strong> \(n=5\) (or \(n=4\) under the alternative reading).</div>
+  </div>
+  <span class="src">Main paper (6) Q2(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">J2.</span> [Main paper (5) Q4(b)] “Find \(n\); \(4C2=2C3\).”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> As printed, \({}^{4}C_{2}=6\) while \({}^{2}C_{3}=0\), so the statement is false. The most probable intended equation is \({}^{n}C_{3}=2\,{}^{n}C_{2}\), which gives</div>
+    \[
+    \frac{n(n-1)(n-2)}{6}=2\cdot\frac{n(n-1)}{2}=n(n-1)
+    \Rightarrow n-2=6\Rightarrow n=8 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(n=8\) under the reconstruction \({}^{n}C_{3}=2\,{}^{n}C_{2}\).</div>
+  </div>
+  <span class="src">Main paper (5) Q4(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">J3.</span> [Main paper (6) Q1(f)] “Solve …”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> The equation itself is missing from the scan. The surrounding items are trigonometric, so it is most likely one of the trigonometric equations solved in F13–F16 (for example \(12\cos^{2}\theta+\sin\theta=11\), whose solutions are \(\theta\approx19.5^{\circ},160.5^{\circ},194.5^{\circ},345.5^{\circ}\)).</div>
+  </div>
+  <span class="src">Main paper (6) Q1(f)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">J4.</span> [Main paper (6) Q3(b)] “Solve the equation …”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> The equation is missing. Given the neighbouring items, the likely intended equation is \(\sin2\theta=\cos\theta\) (solved in F14: \(\theta=30^{\circ},90^{\circ},150^{\circ},270^{\circ}\)).</div>
+  </div>
+  <span class="src">Main paper (6) Q3(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">3 marks</span>
+  <div class="question"><span class="qnum">J5.</span> [Main paper (7) Q1(c)] “Given \(A=\{a,b,c,d,e\}\), \(B=\{a,e,i,o,u\}\), \(C=\{c,d,e,u\}\), show that \(A\ldots\)”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> The set identity to be proved is cut off in the scan. The standard identity associated with these sets is the distributive law \(A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\), proved in A2/A7. With these sets: \(B\cup C=\{a,c,d,e,i,o,u\}\), so \(A\cap(B\cup C)=\{a,c,d,e\}\); also \(A\cap B=\{a,e\}\), \(A\cap C=\{c,d,e\}\), whose union is \(\{a,c,d,e\}\). ✓</div>
+  </div>
+  <span class="src">Main paper (7) Q1(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">J6.</span> [Main paper (7) Q1(d)] “Find the sum of the first 25 terms of the geometric series …”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> The geometric series is not given in the scan. If it is the infinite GP of Q2(d), namely \(\frac13,-\frac29,\frac4{27},-\frac8{81},\ldots\), then with \(a=\frac13\), \(r=-\frac23\):</div>
+    \[
+    S_{25}=\frac{\frac13\left(1-\left(-\frac23\right)^{25}\right)}{1+\frac23}
+    =\frac{1}{5}\left(1-\left(-\frac23\right)^{25}\right)=\frac15\left(1+\left(\frac23\right)^{25}\right).
+    \]
+    <div class="ans"><strong>Answer:</strong> \(S_{25}=\dfrac15\left(1+\left(\dfrac23\right)^{25}\right)\approx0.2000\) (under the assumed series).</div>
+  </div>
+  <span class="src">Main paper (7) Q1(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">5 marks</span>
+  <div class="question"><span class="qnum">J7.</span> [Main paper (8) Q4(c)] “Find the 5th term in the expansion of \(\left(2x-\frac1x\right)^{8/3}\).”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible exponent.</strong> The exponent is printed as \(\frac{8}{3}\), which is not a positive integer, so the “5th term” is not defined in the usual finite binomial sense. The intended exponent is almost certainly \(8\).</div>
+    <p>For \(\left(2x-\frac1x\right)^{8}\), the 5th term (\(r=4\)) is</p>
+    \[
+    T_{5}=\binom{8}{4}(2x)^{4}\left(-\frac1x\right)^{4}=70\cdot16=1\,120 .
+    \]
+    <div class="ans"><strong>Answer:</strong> \(T_{5}=1\,120\) (assuming the exponent is 8, as solved in E7).</div>
+  </div>
+  <span class="src">Main paper (8) Q4(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">4 marks</span>
+  <div class="question"><span class="qnum">J8.</span> [Main paper (6) Q4(b)] “Verify \(2\csc x=\ldots\)”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> The right-hand side is garbled. The standard identity that matches the visible fragments \(\sin x,\ 1+\cos x\) is</div>
+    \[
+    2\csc x=\frac{1+\cos x}{\sin x}+\frac{\sin x}{1+\cos x},
+    \]
+    <p>which is verified in F11. Another common version, \(\dfrac{\sin2x}{\sin x}-\dfrac{\cos2x}{\cos x}=\sec x\), is verified in F12.</p>
+  </div>
+  <span class="src">Main paper (6) Q4(b)</span>
+</div>
+
+<div class="q">
+  <span class="marks">6 marks</span>
+  <div class="question"><span class="qnum">J9.</span> [Supplementary 2024 Q5(d)] “Find the truth table” for a proposition with columns \(p,q,p\land q,p\lor q,(p\land\neg q)\rightarrow(p\lor q)\).</div>
+  <div class="sol">
+    <p>The header row is partly corrupted; the columns that survive are \(p,\ q,\ p\land q,\ p\lor q\) and a conditional. The completed table for \(p,\ q,\ p\land q,\ p\lor q\) is:</p>
+    <table>
+      <tr><th>\(p\)</th><th>\(q\)</th><th>\(p\land q\)</th><th>\(p\lor q\)</th></tr>
+      <tr><td>T</td><td>T</td><td>T</td><td>T</td></tr>
+      <tr><td>T</td><td>F</td><td>F</td><td>T</td></tr>
+      <tr><td>F</td><td>T</td><td>F</td><td>T</td></tr>
+      <tr><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+    </table>
+    <p>If the final column is the one given in G8, \((p\land\neg q)\rightarrow(p\lor q)\), it is a tautology (all T).</p>
+  </div>
+  <span class="src">Supplementary 2024 Q5(d)</span>
+</div>
+
+<div class="q">
+  <span class="marks">—</span>
+  <div class="question"><span class="qnum">J10.</span> [Main paper (7) Q1(a)] “Find \(n\) if \(\Omega^{n}_{3}=60\).”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Symbol ambiguity.</strong> The symbol is rendered \(\Omega^{n}_{3}\), which is not standard. It is read as the permutation symbol \({}^{n}P_{3}\), solved in C7 (answer \(n=5\)). If it were the combination \({}^{n}C_{3}\), there is no integer solution since \(n(n-1)(n-2)=360\) has no integer root.</div>
+    <div class="ans"><strong>Answer:</strong> \(n=5\) (reading as \({}^{n}P_{3}=60\)).</div>
+  </div>
+  <span class="src">Main paper (7) Q1(a) · Special paper Q1(c)</span>
+</div>
+
+<div class="q">
+  <span class="marks">—</span>
+  <div class="question"><span class="qnum">J11.</span> [Main paper (6) Q4(e)] “Solve for \(n\): \(n=1\ n=1\ C_{2}=15\).”</div>
+  <div class="sol">
+    <div class="illegible"><strong>Illegible.</strong> The printed line contains repeated “\(n=1\)” fragments. The readable part is \({}^{n}C_{2}=15\), solved in C10 (answer \(n=6\)).</div>
+    <div class="ans"><strong>Answer:</strong> \(n=6\).</div>
+  </div>
+  <span class="src">Main paper (6) Q4(e)</span>
+</div>
+
+<!-- ================================================================= -->
+<footer>
+  <p><strong>MATH 110 — Basic Mathematics · Kabarak University</strong></p>
+  <p>All questions from the seven supplied papers are answered above; duplicates are merged by topic and cross‑referenced.</p>
+  <p>Where a printed question is internally inconsistent or illegible, the correction and the reasoning are shown in a highlighted note.</p>
+</footer>
+
+</main>
+
+</body>
+</html>
